@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 
 const Sign = () => {
-    // 입력값을 관리하기 위한 상태 변수
     const [formData, setFormData] = useState({
         id: '',
         email: '',
