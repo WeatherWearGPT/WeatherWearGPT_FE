@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './LoginForm.css'; // 스타일 파일 추가
+import '../LoginForm.css'; // 스타일 파일 경로 수정
 
 const LoginForm = () => {
   const [email, setEmail] = useState('');

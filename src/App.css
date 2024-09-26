@@ -1,5 +1,4 @@
 .app-container {
-  background-image: url('/background.jpg'); /* 배경 이미지 추가 */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -8,11 +7,10 @@
   justify-content: center;
   align-items: center;
   position: relative;
-  padding-top: 120px; /* UI를 더 아래로 내림 */
 }
 
 .login-box {
-  background-color: rgba(128, 128, 128, 0.8); /* 반투명한 회색 */
+  background-color: rgba(255, 255, 255, 0.8); /* 반투명한 회색 */
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
