@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './Sign.css';
+import './Sign.css'; // Sign.css 파일을 import
 
 const Sign = () => {
     const [formData, setFormData] = useState({
@@ -45,7 +45,7 @@ const Sign = () => {
                 <div className="signup-form-box">
                     <h2>회원가입</h2>
                     <form onSubmit={handleSubmit} className="signup-form">
-                        {/*각각의 입력 필드와 라벨 */}
+                        {/* 각각의 입력 필드와 라벨 */}
                         <div className="form-group">
                             <label>아이디:</label>
                             <input type="text" name="id" value={formData.id} onChange={handleChange} required />

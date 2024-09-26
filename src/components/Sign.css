@@ -70,21 +70,26 @@
     flex-direction: column;
 }
 
+/* 입력 그룹을 가로로 정렬 */
 .form-group {
+    display: flex;
+    align-items: center;
     margin-bottom: 20px;
 }
 
+/* label과 input이 나란히 오도록 설정 */
 .form-group label {
     font-family: 'Inter';
     font-size: 20px;
-    margin-bottom: 10px;
-    display: block;
     color: #000000;
+    width: 30%; /* label의 너비를 30%로 설정 */
+    text-align: right; /* 텍스트를 오른쪽 정렬 */
+    margin-right: 10px; /* label과 input 사이에 약간의 여백 */
 }
 
 .form-group input,
 .form-group select {
-    width: 100%;
+    width: 70%; /* 입력 칸이 남은 공간을 차지하게 설정 */
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -96,7 +101,7 @@
     width: 100%;
     padding: 15px;
     background-color: #8DDDFF;
-    color: black;
+    color: white;
     border: none;
     border-radius: 5px;
     font-size: 18px;
