@@ -1,7 +1,7 @@
 /* 전체 페이지 설정 */
 .signup-page {
     position: absolute;
-    top: 86px; /* 상단바 아래 위치 */
+    top: 86px;   /*상단바 아래 위치 */
     left: 0;
     width: 100%;
     height: 938px;
