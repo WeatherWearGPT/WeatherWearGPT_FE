@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './Sign.css'; // Sign.css 파일을 import
+import weatherImage from '../assets/images/weather.png'; // 이미지 파일 경로를 import
 
 const Sign = () => {
     const [formData, setFormData] = useState({
@@ -13,9 +14,28 @@ const Sign = () => {
     });
 
     const [message, setMessage] = useState('');
+    const [errorMessage, setErrorMessage] = useState({ cm: '', kg: '' }); // 에러 메시지 상태 관리
 
     const handleChange = (e) => {
         const { name, value } = e.target;
+
+        // 숫자 확인 로직: cm, kg에 대해 정수 여부 검사
+        if (name === 'cm' || name === 'kg') {
+            // 정수가 아닌 경우 에러 메시지 표시
+            if (!/^\d+$/.test(value)) {
+                setErrorMessage({
+                    ...errorMessage,
+                    [name]: '숫자를 입력하십시오.'
+                });
+            } else {
+                // 입력값이 정수이면 에러 메시지를 지움
+                setErrorMessage({
+                    ...errorMessage,
+                    [name]: ''
+                });
+            }
+        }
+
         setFormData({
             ...formData,
             [name]: value
@@ -24,10 +44,19 @@ const Sign = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+
+        // 비밀번호 확인 로직
         if (formData.password !== formData.passwordcheck) {
             setMessage('비밀번호가 일치하지 않습니다.');
             return;
         }
+
+        // 정수가 아닌 값이 있는지 확인
+        if (errorMessage.cm || errorMessage.kg) {
+            setMessage('모든 필드가 올바르게 입력되었는지 확인하십시오.');
+            return;
+        }
+
         setMessage('회원가입에 성공하셨습니다.');
     };
 
@@ -41,7 +70,10 @@ const Sign = () => {
             {/* 회원가입 폼 컨테이너 */}
             <div className="signup-container">
                 {/* 배경 이미지 위에 폼을 배치 */}
-                <div className="weather-bg"></div>
+                <div
+                    className="weather-bg"
+                    style={{ backgroundImage: `url(${weatherImage})` }}
+                ></div>
                 <div className="signup-form-box">
                     <h2>회원가입</h2>
                     <form onSubmit={handleSubmit} className="signup-form">
@@ -64,11 +96,27 @@ const Sign = () => {
                         </div>
                         <div className="form-group">
                             <label>키(cm):</label>
-                            <input type="number" name="cm" value={formData.cm} onChange={handleChange} required />
+                            <input
+                                type="text"
+                                name="cm"
+                                value={formData.cm}
+                                onChange={handleChange}
+                                required
+                            />
+                            {/* 키 입력값이 잘못된 경우 에러 메시지 표시 */}
+                            {errorMessage.cm && <p className="error-message">{errorMessage.cm}</p>}
                         </div>
                         <div className="form-group">
                             <label>몸무게(kg):</label>
-                            <input type="number" name="kg" value={formData.kg} onChange={handleChange} required />
+                            <input
+                                type="text"
+                                name="kg"
+                                value={formData.kg}
+                                onChange={handleChange}
+                                required
+                            />
+                            {/* 몸무게 입력값이 잘못된 경우 에러 메시지 표시 */}
+                            {errorMessage.kg && <p className="error-message">{errorMessage.kg}</p>}
                         </div>
                         <div className="form-group">
                             <label>성별:</label>
