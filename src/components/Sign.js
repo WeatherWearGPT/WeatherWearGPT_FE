@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './Sign.css'; // Sign.css 파일을 import
+import './Sign.css';
 
 const Sign = () => {
     const [formData, setFormData] = useState({

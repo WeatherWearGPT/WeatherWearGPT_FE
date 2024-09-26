@@ -1,13 +1,13 @@
 /* 전체 페이지 설정 */
 .signup-page {
-    position: relative;
+    position: absolute;
+    top: 86px; /* 상단바 아래 위치 */
+    left: 0;
     width: 100%;
-    height: 100vh;
-    background: #FFFFFF;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
+    height: 938px;
+    background: url('weather.png') no-repeat center center;
+    background-size: cover;
+    }
 
 /* 상단바 */
 .navbar {
@@ -23,17 +23,6 @@
     font-family: 'Inter';
     font-size: 30px;
     color: #000000;
-}
-
-/* 배경 이미지 */
-.weather-bg {
-    position: absolute;
-    top: 86px; /* 상단바 아래 위치 */
-    left: 0;
-    width: 100%;
-    height: 938px;
-    background: url('weather.png') no-repeat center center;
-    background-size: cover;
 }
 
 /* 폼 전체를 감싸는 박스 */
