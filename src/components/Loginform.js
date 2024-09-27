@@ -4,7 +4,7 @@ import axios from 'axios'; // axios import
 import './Loginform.css';
 
 const LoginForm = () => {
-  const [email, setEmail] = useState('');
+  const [id, setId] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState(''); // 에러 메시지 상태
   const navigate = useNavigate();
@@ -16,7 +16,7 @@ const LoginForm = () => {
     try {
       // axios로 로그인 요청 보내기
       const response = await axios.post('http://your-backend-url.com/auth/login', {
-        email: email,
+        id: id,
         password: password,
       });
 
@@ -71,12 +71,12 @@ const LoginForm = () => {
           <h2>로그인</h2>
           <form onSubmit={handleSubmit} className="login-form">
             <div className="form-group">
-              <label htmlFor="email">이메일:</label>
+              <label htmlFor="id">아이디:</label>
               <input
-                type="email"
-                id="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                type="id"
+                id="id"
+                value={id}
+                onChange={(e) => setId(e.target.value)}
                 required
               />
             </div>
