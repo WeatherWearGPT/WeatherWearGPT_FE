@@ -15,7 +15,7 @@ const LoginForm = () => {
 
     try {
       // axios로 로그인 요청 보내기
-      const response = await axios.post('http://localhost:8080/register', {
+      const response = await axios.post('http://localhost:8080/login', {
         username: username,
         password: password,
       });
