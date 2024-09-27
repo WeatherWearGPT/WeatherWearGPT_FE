@@ -4,7 +4,7 @@ import axios from 'axios'; // axios import
 import './Loginform.css'; 
 
 const LoginForm = () => {
-  const [email, setEmail] = useState('');
+  const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState(''); // 에러 메시지 상태
   const navigate = useNavigate();
@@ -15,8 +15,8 @@ const LoginForm = () => {
 
     try {
       // axios로 로그인 요청 보내기
-      const response = await axios.post('http://your-backend-url.com/auth/login', {
-        email: email,
+      const response = await axios.post('http://localhost:8080/register', {
+        username: username,
         password: password,
       });
 
@@ -49,12 +49,13 @@ const LoginForm = () => {
 
   // 네이버 로그인 함수
   const handleNaverLogin = () => {
-    window.location.href = 'http://your-backend-url.com/auth/naver'; // 백엔드 네이버 로그인 경로로 리다이렉트
+    window.location.href = 'http://localhost:8080/oauth2/authorization/naver'; // 백엔드 네이버 로그인 경로로 리다이렉트
+    
   };
 
   // 카카오 로그인 함수
-  const handleKakaoLogin = () => {
-    window.location.href = 'http://your-backend-url.com/auth/kakao'; // 백엔드 카카오 로그인 경로로 리다이렉트
+  const handleGoogleLogin = () => {
+    window.location.href = 'http://localhost:8080/oauth2/authorization/google'; // 백엔드 카카오 로그인 경로로 리다이렉트
   };
 
   return (
@@ -71,12 +72,12 @@ const LoginForm = () => {
           <h2>로그인</h2>
           <form onSubmit={handleSubmit} className="login-form">
             <div className="form-group">
-              <label htmlFor="email">이메일:</label>
+              <label htmlFor="email">아이디:</label>
               <input
-                type="email"
-                id="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                type="id"
+                id="username"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
                 required
               />
             </div>
@@ -100,7 +101,7 @@ const LoginForm = () => {
           {/* 소셜 로그인 버튼 */}
           <div className="social-login">
             <button type="button" className="naver-login" onClick={handleNaverLogin}>N</button>
-            <button type="button" className="kakao-login" onClick={handleKakaoLogin}>K</button>
+            <button type="button" className="google-login" onClick={handleGoogleLogin}>G</button>
           </div>
         </div>
       </div>
