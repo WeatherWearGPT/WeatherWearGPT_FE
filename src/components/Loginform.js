@@ -1,16 +1,45 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios'; // axios import
 import './Loginform.css'; 
 
 const LoginForm = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [error, setError] = useState(''); // 에러 메시지 상태
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Email:", email);
-    console.log("Password:", password);
+    setError(''); // 에러 메시지 초기화
+
+    try {
+      // axios로 로그인 요청 보내기
+      const response = await axios.post('http://your-backend-url.com/auth/login', {
+        email: email,
+        password: password,
+      });
+
+      if (response.status === 200) {
+        // 로그인 성공 시, 백엔드에서 받은 토큰을 저장
+        console.log('로그인 성공:', response.data);
+
+        // 로컬 스토리지에 토큰 저장
+        localStorage.setItem('accessToken', response.data.accessToken); // 예시: 액세스 토큰 저장
+        localStorage.setItem('refreshToken', response.data.refreshToken); // 예시: 리프레시 토큰 저장
+
+        // 로그인 성공 후 대시보드 페이지로 이동
+        navigate('/dashboard');
+      }
+    } catch (err) {
+      if (err.response) {
+        // 백엔드가 응답을 반환한 경우 (로그인 실패)
+        setError('로그인 실패: ' + err.response.data.message);
+      } else {
+        // 네트워크 오류 처리
+        setError('네트워크 오류가 발생했습니다.');
+      }
+    }
   };
 
   // 회원가입 페이지로 이동하는 함수
@@ -64,6 +93,9 @@ const LoginForm = () => {
             <button type="submit" className="login-button">로그인</button>
             <button type="button" onClick={handleSignUpClick} className="signup-button">회원가입</button>
           </form>
+
+          {/* 에러 메시지 출력 */}
+          {error && <p className="error-message">{error}</p>}
 
           {/* 소셜 로그인 버튼 */}
           <div className="social-login">
