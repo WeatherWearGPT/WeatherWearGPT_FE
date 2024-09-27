@@ -15,7 +15,7 @@ const LoginForm = () => {
 
     try {
       // axios로 로그인 요청 보내기
-      const response = await axios.post('http://your-backend-url.com/auth/login', {
+      const response = await axios.post('http://localhost3000/auth/login', {
         id: id,
         password: password,
       });
@@ -49,12 +49,12 @@ const LoginForm = () => {
 
   // 네이버 로그인 함수
   const handleNaverLogin = () => {
-    window.location.href = 'http://your-backend-url.com/auth/naver'; // 백엔드 네이버 로그인 경로로 리다이렉트
+    window.location.href = 'http://localhost3000/auth/naver'; // 백엔드 네이버 로그인 경로로 리다이렉트
   };
 
   // 카카오 로그인 함수
   const handleKakaoLogin = () => {
-    window.location.href = 'http://your-backend-url.com/auth/kakao'; // 백엔드 카카오 로그인 경로로 리다이렉트
+    window.location.href = 'http://localhost3000/auth/kakao'; // 백엔드 카카오 로그인 경로로 리다이렉트
   };
 
   return (

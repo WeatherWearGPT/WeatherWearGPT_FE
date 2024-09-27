@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './Sign.css'; // Sign.css 재사용
+import axios from 'axios'; // axios import
 
 const SignSocial = () => {
     const [formData, setFormData] = useState({
@@ -35,7 +36,7 @@ const SignSocial = () => {
         });
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
         if (errorMessage.cm || errorMessage.kg) {
@@ -43,7 +44,21 @@ const SignSocial = () => {
             return;
         }
 
-        setMessage('추가 정보가 성공적으로 저장되었습니다.');
+        try {
+            // POST 요청을 통해 /register/social로 추가 정보 보내기
+            const response = await axios.post('http://localhost3000/register/social', {
+                cm: formData.cm,
+                kg: formData.kg,
+                sex: formData.sex
+            });
+
+            if (response.status === 200) {
+                setMessage('추가 정보가 성공적으로 저장되었습니다.');
+            }
+        } catch (error) {
+            console.error('추가 정보 저장 실패:', error);
+            setMessage('저장에 실패했습니다.');
+        }
     };
 
     return (

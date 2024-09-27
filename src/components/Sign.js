@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import './Sign.css'; // Sign.css 파일을 import
+import axios from 'axios'; // axios import
+
 
 const Sign = () => {
     const [formData, setFormData] = useState({
@@ -39,7 +41,7 @@ const Sign = () => {
         });
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
         if (formData.password !== formData.passwordcheck) {
@@ -52,7 +54,24 @@ const Sign = () => {
             return;
         }
 
-        setMessage('회원가입에 성공하셨습니다.');
+        try {
+            // POST 요청을 통해 /register로 일반 회원가입 정보 보내기
+            const response = await axios.post('http://localhost3000/register', {
+                id: formData.id,
+                email: formData.email,
+                password: formData.password,
+                cm: formData.cm,
+                kg: formData.kg,
+                sex: formData.sex
+            });
+
+            if (response.status === 200) {
+                setMessage('회원가입에 성공하셨습니다.');
+            }
+        } catch (error) {
+            console.error('회원가입 실패:', error);
+            setMessage('회원가입에 실패했습니다.');
+        }
     };
 
     return (
