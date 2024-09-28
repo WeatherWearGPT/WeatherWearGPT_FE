@@ -98,20 +98,26 @@
   border: 1px solid #ccc;
   border-radius: 5px;
   font-size: 16px;
-  text-align: center;
+  text-align: left; /* 입력 텍스트를 좌측 정렬 */
+}
+
+/* 플레이스홀더 텍스트 좌측 정렬 */
+::placeholder {
+  text-align: left;
 }
 
 /* 로그인 및 회원가입 버튼을 같은 줄에 배치 */
 .button-container {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-between; /* 버튼 간격 동일하게 */
   width: 80%;
   margin-top: 20px;
 }
 
-.login-button, .signup-button {
-  width: 48%; /* 두 버튼이 동일한 크기로 나란히 배치되도록 설정 */
-  padding: 12px; /* 버튼 크기 조정 */
+.loginform-login-button, .loginform-signup-button {
+  width: calc(50% - 10px); /* 두 버튼의 너비를 동일하게 설정하고 간격 조절 */
+  height: 50px; /* 동일한 고정 높이 설정 */
+  padding: 0; /* 내부 패딩 제거로 높이 일관성 유지 */
   background-color: #8DDDFF;
   color: white;
   border: none;
@@ -120,9 +126,11 @@
   cursor: pointer;
   transition: background-color 0.3s ease;
   text-align: center;
+  box-sizing: border-box; /* 패딩과 보더가 크기에 포함되도록 설정 */
+  line-height: 50px; /* 텍스트 수직 중앙 정렬을 위해 높이와 일치 */
 }
 
-.login-button:hover, .signup-button:hover {
+.loginform-login-button:hover, .loginform-signup-button:hover {
   background-color: #7CC9E6;
 }
 

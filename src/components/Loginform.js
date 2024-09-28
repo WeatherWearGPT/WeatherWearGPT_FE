@@ -82,8 +82,8 @@ const LoginForm = () => {
               />
             </div>
             <div className="button-container">
-                <button type="submit" className="login-button">로그인</button>
-                <button type="button" onClick={handleSignUpClick} className="signup-button">회원가입</button>
+                <button type="submit" className="loginform-login-button">로그인</button>
+                <button type="button" onClick={handleSignUpClick} className="loginform-signup-button">회원가입</button>
             </div>
           </form>
 
