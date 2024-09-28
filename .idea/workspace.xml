@@ -5,19 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aa2e9723-b442-4d0e-bb60-89eae371afbb" name="변경" comment="sign api connect try">
-      <change afterPath="$PROJECT_DIR$/src/components/chat.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/google_logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/mypage.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/mypage.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/naver_logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/saveAdminInfo.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/weatherwear_logo.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Loginform.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Loginform.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Loginform.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Loginform.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Sign.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Sign.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Sign.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Sign.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/SignSocial.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SignSocial.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WeatherWearGPT_FE/src/components/Loginform.css" beforeDir="false" afterPath="$PROJECT_DIR$/WeatherWearGPT_FE/src/components/Loginform.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WeatherWearGPT_FE/src/components/Loginform.js" beforeDir="false" afterPath="$PROJECT_DIR$/WeatherWearGPT_FE/src/components/Loginform.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WeatherWearGPT_FE/src/components/Sign.css" beforeDir="false" afterPath="$PROJECT_DIR$/WeatherWearGPT_FE/src/components/Sign.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WeatherWearGPT_FE/src/components/Sign.js" beforeDir="false" afterPath="$PROJECT_DIR$/WeatherWearGPT_FE/src/components/Sign.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,6 +38,8 @@
             <value>
               <list>
                 <branch-info repo="$PROJECT_DIR$/WeatherWearGPT_FE" source="origin/sign" />
+                <branch-info repo="$PROJECT_DIR$" source="origin/sign-up" />
+                <branch-info repo="$PROJECT_DIR$/WeatherWearGPT_FE" source="origin/sign-up" />
               </list>
             </value>
           </entry>
@@ -53,13 +48,14 @@
     </favorite-branches>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="jiyeon/sign" />
-        <entry key="$PROJECT_DIR$/WeatherWearGPT_FE" value="sign" />
+        <entry key="$PROJECT_DIR$" value="sign-up" />
+        <entry key="$PROJECT_DIR$/WeatherWearGPT_FE" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RESET_MODE" value="HARD" />
     <option name="ROOT_SYNC" value="DONT_SYNC" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 4
@@ -226,7 +222,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="sign-up" />
+                        <option value="origin/sign-up" />
                       </list>
                     </value>
                   </entry>
