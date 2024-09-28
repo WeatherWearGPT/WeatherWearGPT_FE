@@ -1,0 +1,155 @@
+/* 전체 페이지 설정 */
+.login-page {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* 상단바 (헤더) */
+.navbar {
+  width: 100%;
+  height: 86px;
+  background-color: #D9D9D9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-title {
+  font-family: 'Inter';
+  font-size: 30px;
+  color: #000000;
+}
+
+/* 배경 이미지 */
+.weather-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: url('weather.png') no-repeat center center;
+  background-size: cover;
+  z-index: -1;
+}
+
+/* 로그인 폼 전체를 감싸는 박스 */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: calc(100vh - 86px);
+  z-index: 1;
+  padding-top: 100px;
+}
+
+.login-form-box {
+  width: 643px;
+  background-color: rgba(217, 217, 217, 0.8);
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  position: relative;
+  text-align: center;
+}
+
+/* 로고 컨테이너 */
+.logo-container {
+  margin-bottom: 20px;
+}
+
+.weatherwear-logo {
+  width: 600px;
+  height: auto;
+  object-fit: contain;
+}
+
+/* 로그인 폼 */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.form-group input {
+  width: 80%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  text-align: left; /* 입력 텍스트를 좌측 정렬 */
+}
+
+/* 플레이스홀더 텍스트 좌측 정렬 */
+::placeholder {
+  text-align: left;
+}
+
+/* 로그인 및 회원가입 버튼을 같은 줄에 배치 */
+.button-container {
+  display: flex;
+  justify-content: space-between; /* 버튼 간격 동일하게 */
+  width: 80%;
+  margin-top: 20px;
+}
+
+.loginform-login-button, .loginform-signup-button {
+  width: calc(50% - 10px); /* 두 버튼의 너비를 동일하게 설정하고 간격 조절 */
+  height: 50px; /* 동일한 고정 높이 설정 */
+  padding: 0; /* 내부 패딩 제거로 높이 일관성 유지 */
+  background-color: #8DDDFF;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px; /* 동일한 텍스트 크기 설정 */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  text-align: center;
+  box-sizing: border-box; /* 패딩과 보더가 크기에 포함되도록 설정 */
+  line-height: 50px; /* 텍스트 수직 중앙 정렬을 위해 높이와 일치 */
+}
+
+.loginform-login-button:hover, .loginform-signup-button:hover {
+  background-color: #7CC9E6;
+}
+
+/* 소셜 로그인 */
+.social-login {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.naver-login, .google-login {
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin: 0 10px;
+}
+
+.social-icon {
+  width: 60px;  /* 로고 크기 크게 설정 */
+  height: 60px; /* 로고 크기 크게 설정 */
+  object-fit: contain;
+}
