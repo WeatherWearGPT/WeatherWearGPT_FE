@@ -67,7 +67,7 @@ const LoginForm = () => {
                 id="id"
                 value={id}
                 onChange={(e) => setId(e.target.value)}
-                placeholder="아이디 또는 전화번호" /* 플레이스홀더 추가 */
+                placeholder="아이디" /* 플레이스홀더 추가 */
                 required
               />
             </div>
