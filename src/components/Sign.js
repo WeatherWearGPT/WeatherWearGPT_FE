@@ -33,10 +33,6 @@ const Sign = () => {
 
     return (
         <div className="signup-page">
-            {/* 상단바 */}
-            <div className="navbar">
-                <p className="navbar-title">회원가입</p>
-            </div>
 
             {/* 회원가입 폼 컨테이너 */}
             <div className="signup-container">
