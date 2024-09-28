@@ -56,7 +56,7 @@ const Sign = () => {
 
         try {
             // POST 요청을 통해 /register로 일반 회원가입 정보 보내기
-            const response = await axios.post('http://localhost3000/register', {
+            const response = await axios.post('http://localhost8080/register', {
                 id: formData.id,
                 email: formData.email,
                 password: formData.password,

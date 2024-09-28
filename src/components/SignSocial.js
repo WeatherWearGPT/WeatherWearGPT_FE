@@ -46,7 +46,7 @@ const SignSocial = () => {
 
         try {
             // POST 요청을 통해 /register/social로 추가 정보 보내기
-            const response = await axios.post('http://localhost3000/register/social', {
+            const response = await axios.post('http://localhost8080/register/social', {
                 cm: formData.cm,
                 kg: formData.kg,
                 sex: formData.sex

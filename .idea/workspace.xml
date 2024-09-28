@@ -4,12 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aa2e9723-b442-4d0e-bb60-89eae371afbb" name="변경" comment="login fix&#10;email -&gt; id">
-      <change afterPath="$PROJECT_DIR$/src/api.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="aa2e9723-b442-4d0e-bb60-89eae371afbb" name="변경" comment="sign api connect try">
+      <change afterPath="$PROJECT_DIR$/src/components/chat.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/google_logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/mypage.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/mypage.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/naver_logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/saveAdminInfo.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/weatherwear_logo.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Loginform.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Loginform.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Loginform.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Loginform.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Sign.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Sign.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Sign.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Sign.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/SignSocial.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SignSocial.js" afterDir="false" />
     </list>
@@ -66,16 +72,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "sign-up",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/project3/weatherweargpt",
-    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
-    "settings.editor.splitter.proportion": "0.2255144"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;sign-up&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/project3/weatherweargpt&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;,
+    &quot;settings.editor.splitter.proportion&quot;: &quot;0.2255144&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\project3\weatherweargpt\src\components" />
@@ -183,7 +189,15 @@
       <option name="project" value="LOCAL" />
       <updated>1727425641124</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="sign api connect try">
+      <option name="closed" value="true" />
+      <created>1727453491258</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1727453491258</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -212,7 +226,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="sign-up/sign-up" />
+                        <option value="sign-up" />
                       </list>
                     </value>
                   </entry>
@@ -227,6 +241,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="create sign" />
     <MESSAGE value="login fix&#10;email -&gt; id" />
-    <option name="LAST_COMMIT_MESSAGE" value="login fix&#10;email -&gt; id" />
+    <MESSAGE value="sign api connect try" />
+    <option name="LAST_COMMIT_MESSAGE" value="sign api connect try" />
   </component>
 </project>

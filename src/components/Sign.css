@@ -3,16 +3,16 @@
     position: relative;
     width: 100%;
     height: 100vh;
-    background: url('C:\project3\weatherweargpt\src\components\weather.png') no-repeat center center;
-    background-size: cover;
+    background: #FFFFFF;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-}
+    justify-content: center;
+    overflow: hidden;
+  }
 
-/* 상단바 (헤더) */
-.navbar {
+  /* 상단바 (헤더) */
+  .navbar {
     width: 100%;
     height: 86px;
     background-color: #D9D9D9;
@@ -24,101 +24,123 @@
     left: 0;
     z-index: 10;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
+  }
 
-.navbar-title {
-    font-family: 'Inter', sans-serif;
+  .navbar-title {
+    font-family: 'Inter';
     font-size: 30px;
     color: #000000;
-}
+  }
 
-/* 폼 전체를 감싸는 박스 */
-.signup-container {
+  /* 배경 이미지 */
+  .weather-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: url('weather.png') no-repeat center center;
+    background-size: cover;
+    z-index: -1;
+  }
+
+  /* 폼 전체를 감싸는 박스 */
+  .signup-container {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: calc(100vh - 86px); /* 헤더 높이를 제외한 공간을 폼에 할당 */
+    height: calc(100vh - 86px);
+    z-index: 1;
     padding-top: 100px;
-}
+  }
 
-/* 폼 박스 스타일 */
-.signup-form-box {
-    width: 400px;
-    background-color: rgba(255, 255, 255, 0.9); /* 약간의 투명도 */
-    padding: 30px;
+  .signup-form-box {
+    width: 643px;
+    background-color: rgba(217, 217, 217, 0.8);
+    padding: 40px;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 가벼운 그림자 효과 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(10px);
-}
-
-/* 폼 제목 스타일 */
-.signup-form-box h2 {
-    font-family: 'Inter', sans-serif;
-    font-size: 24px;
     text-align: center;
-    margin-bottom: 20px;
-}
+  }
 
-/* 폼 요소 배치 */
-.signup-form {
+  /* 로고 컨테이너 */
+  .logo-container {
+    margin-bottom: 20px;
+  }
+
+  .weatherwear-logo {
+    width: 600px;
+    height: auto;
+    object-fit: contain;
+  }
+
+  /* 회원가입 폼 */
+  .signup-form {
     display: flex;
     flex-direction: column;
-}
+  }
 
-.form-group {
-    margin-bottom: 15px;
-}
+  .form-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
 
-/* 라벨 스타일 */
-.form-group label {
-    font-family: 'Inter', sans-serif;
-    font-size: 18px;
-    margin-bottom: 5px;
-    color: #333;
-}
-
-/* 입력 필드 스타일 */
-.form-group input,
-.form-group select {
-    width: 100%;
+  /* 일반 입력 필드 */
+  .form-group input {
+    width: 70%;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 16px;
-    box-sizing: border-box;
-}
+    text-align: left;
+  }
 
-/* 에러 메시지 스타일 */
-.error-message {
-    color: red;
-    font-size: 14px;
-    margin-top: 5px;
-}
+  /* 플레이스홀더 스타일 */
+  .form-group input::placeholder {
+    text-align: left;
+  }
 
-/* 회원가입 버튼 */
-.signup-button {
-    width: 100%;
+  /* 성별 선택 칸 크기 조정 */
+  .form-group select {
+    width: 20%; /* 성별 선택 칸의 너비를 더 작게 줄임 */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    text-align: left;
+  }
+
+  /* 회원가입 버튼 */
+  .button-group {
+    display: flex;
+    justify-content: center;
+  }
+
+  .signup-button {
+    width: 50%;
     padding: 15px;
-    background-color: #4CAF50;
+    background-color: #8DDDFF;
     color: white;
     border: none;
     border-radius: 5px;
-    font-size: 16px;
+    font-size: 18px;
     cursor: pointer;
-    margin-top: 15px;
     transition: background-color 0.3s ease;
-}
+    margin-top: 20px; /* 추가 간격 조정 */
+  }
 
-.signup-button:hover {
-    background-color: #45A049;
-}
+  .signup-button:hover {
+    background-color: #7CC9E6;
+  }
 
-/* 메시지 출력 */
-.message {
+  /* 메시지 출력 */
+  .message {
     text-align: center;
     margin-top: 20px;
     color: green;
-    font-size: 16px;
+    font-size: 18px;
     font-weight: bold;
-}
+  }
