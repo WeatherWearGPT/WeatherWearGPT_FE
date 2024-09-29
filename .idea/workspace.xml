@@ -6,6 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="aa2e9723-b442-4d0e-bb60-89eae371afbb" name="변경" comment="+mypage">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/mypage.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/mypage.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/mypage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/mypage.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -214,7 +217,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="main/sign-up" />
+                        <option value="sign-up" />
                       </list>
                     </value>
                   </entry>
