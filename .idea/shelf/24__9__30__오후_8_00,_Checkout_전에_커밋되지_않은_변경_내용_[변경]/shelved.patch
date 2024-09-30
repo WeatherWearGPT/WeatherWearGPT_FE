@@ -1,0 +1,287 @@
+Index: src/App.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import React from 'react';\r\nimport { BrowserRouter as Router, Route, Routes } from 'react-router-dom';\r\nimport Loginform from './components/Loginform';\r\nimport Sign from './components/Sign';\r\nimport SignSocial from './components/SignSocial';\r\nimport Mypage from './components/mypage';\r\nimport Chat from './components/chat';\r\nimport './App.css';\r\n\r\n\r\nfunction App() {\r\n  return (\r\n    <Router>\r\n      <div className=\"App\">\r\n        <header className=\"App-header\">\r\n          <Routes>\r\n            {/* 로그인 페이지 */}\r\n            <Route path=\"/\" element={<Loginform />} />\r\n            {/* 회원가입 페이지 */}\r\n            <Route path=\"/signup\" element={<Sign />} />\r\n            {/* 소셜 로그인 사용자 추가 정보 페이지 */}\r\n            <Route path=\"/SignSocial\" element={<SignSocial />} />\r\n            {/* 마이페이지 */}\r\n            <Route path=\"/mypage\" element={<Mypage />} />\r\n            {/* 채팅 페이지 */}\r\n            <Route path=\"/chat\" element={<Chat />} />\r\n          </Routes>\r\n        </header>\r\n      </div>\r\n    </Router>\r\n  );\r\n}\r\n\r\nexport default App;
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/App.js b/src/App.js
+--- a/src/App.js	
++++ b/src/App.js	
+@@ -14,14 +14,14 @@
+       <div className="App">
+         <header className="App-header">
+           <Routes>
+-            {/* 로그인 페이지 */}
+-            <Route path="/" element={<Loginform />} />
+-            {/* 회원가입 페이지 */}
+-            <Route path="/signup" element={<Sign />} />
+-            {/* 소셜 로그인 사용자 추가 정보 페이지 */}
+-            <Route path="/SignSocial" element={<SignSocial />} />
+-            {/* 마이페이지 */}
+-            <Route path="/mypage" element={<Mypage />} />
++//            {/* 로그인 페이지 */}
++//            <Route path="/" element={<Loginform />} />
++//            {/* 회원가입 페이지 */}
++//            <Route path="/signup" element={<Sign />} />
++//            {/* 소셜 로그인 사용자 추가 정보 페이지 */}
++//            <Route path="/SignSocial" element={<SignSocial />} />
++//            {/* 마이페이지 */}
++//            <Route path="/mypage" element={<Mypage />} />
+             {/* 채팅 페이지 */}
+             <Route path="/chat" element={<Chat />} />
+           </Routes>
+Index: src/components/chat.css
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/components/chat.css b/src/components/chat.css
+new file mode 100644
+--- /dev/null	
++++ b/src/components/chat.css	
+@@ -0,0 +1,97 @@
++/* 전체 페이지 설정 */
++.page-container {
++    display: flex;
++    width: 100vw;  /* 전체 너비 */
++    height: 100vh; /* 전체 높이 */
++    overflow: hidden; /* 넘치는 부분을 숨김 */
++    background-color: #f0f0f0; /* 기본 배경색 */
++}
++
++/* 1번 구역 설정 */
++.section-one {
++    flex-basis: 33.33%; /* 화면의 1/3 차지 */
++    background-color: rgba(128, 128, 128, 0.5); /* 반투명 회색 */
++    display: flex;
++    align-items: center;
++    justify-content: center;
++    font-family: 'Inter', sans-serif;
++    font-size: 24px;
++    color: #000;
++    box-shadow: inset -1px 0 0 rgba(0, 0, 0, 0.1); /* 구분선 */
++    padding: 20px;
++}
++
++/* 2번 구역 설정 */
++.section-two {
++    flex-basis: 66.66%; /* 화면의 2/3 차지 */
++    background-color: rgba(128, 128, 128, 0.8); /* 더 선명한 반투명 회색 */
++    display: flex;
++    flex-direction: column;
++    justify-content: space-between;
++    font-family: 'Inter', sans-serif;
++    color: #000;
++    padding: 20px;
++}
++
++/* 채팅 창 스타일 */
++.chat-container {
++    background-color: white;
++    border-radius: 10px;
++    padding: 20px;
++    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
++    overflow-y: auto;
++    flex-grow: 1;
++}
++
++/* 메시지 스타일 */
++.message {
++    background-color: #f1f1f1;
++    padding: 10px;
++    margin-bottom: 10px;
++    border-radius: 10px;
++    font-size: 16px;
++    word-wrap: break-word;
++    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
++}
++
++/* 사용자 메시지 (오른쪽 정렬) */
++.message-user {
++    background-color: #d1e7ff;
++    align-self: flex-end;
++}
++
++/* 챗봇 메시지 (왼쪽 정렬) */
++.message-bot {
++    background-color: #e9ecef;
++    align-self: flex-start;
++}
++
++/* 채팅 입력 영역 */
++.input-container {
++    display: flex;
++    justify-content: space-between;
++    padding-top: 10px;
++}
++
++.input-box {
++    flex-grow: 1;
++    padding: 10px;
++    border-radius: 5px;
++    border: 1px solid #ccc;
++    margin-right: 10px;
++    font-size: 16px;
++}
++
++.send-button {
++    padding: 10px 20px;
++    background-color: #007bff;
++    color: white;
++    border: none;
++    border-radius: 5px;
++    font-size: 16px;
++    cursor: pointer;
++}
++
++.send-button:hover {
++    background-color: #0056b3;
++}
+\ No newline at end of file
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"aa2e9723-b442-4d0e-bb60-89eae371afbb\" name=\"변경\" comment=\"sign\">\r\n      <change afterPath=\"$PROJECT_DIR$/src/components/SignSocial.css\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/App.js\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/App.js\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/components/Loginform.js\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/components/Loginform.js\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/components/Sign.css\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/components/Sign.css\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/components/Sign.js\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/components/Sign.js\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/components/SignSocial.js\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/components/SignSocial.js\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/components/mypage.css\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/components/mypage.css\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/components/saveAdminInfo.js\" beforeDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <excluded-from-favorite>\r\n      <branch-storage>\r\n        <map>\r\n          <entry type=\"REMOTE\">\r\n            <value>\r\n              <list>\r\n                <branch-info repo=\"$PROJECT_DIR$/WeatherWearGPT_FE\" source=\"origin/main\" />\r\n              </list>\r\n            </value>\r\n          </entry>\r\n        </map>\r\n      </branch-storage>\r\n    </excluded-from-favorite>\r\n    <favorite-branches>\r\n      <branch-storage>\r\n        <map>\r\n          <entry type=\"REMOTE\">\r\n            <value>\r\n              <list>\r\n                <branch-info repo=\"$PROJECT_DIR$/WeatherWearGPT_FE\" source=\"origin/sign\" />\r\n                <branch-info repo=\"$PROJECT_DIR$\" source=\"origin/sign-up\" />\r\n                <branch-info repo=\"$PROJECT_DIR$/WeatherWearGPT_FE\" source=\"origin/sign-up\" />\r\n              </list>\r\n            </value>\r\n          </entry>\r\n        </map>\r\n      </branch-storage>\r\n    </favorite-branches>\r\n    <option name=\"RECENT_BRANCH_BY_REPOSITORY\">\r\n      <map>\r\n        <entry key=\"$PROJECT_DIR$\" value=\"sign-up\" />\r\n        <entry key=\"$PROJECT_DIR$/WeatherWearGPT_FE\" value=\"sign-up\" />\r\n      </map>\r\n    </option>\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n    <option name=\"RESET_MODE\" value=\"HARD\" />\r\n    <option name=\"ROOT_SYNC\" value=\"DONT_SYNC\" />\r\n    <option name=\"UPDATE_TYPE\" value=\"REBASE\" />\r\n  </component>\r\n  <component name=\"ProjectColorInfo\">{\r\n  &quot;associatedIndex&quot;: 4\r\n}</component>\r\n  <component name=\"ProjectId\" id=\"2mYI4DIx1keOHjGF6pbr92mQ18S\" />\r\n  <component name=\"ProjectLevelVcsManager\">\r\n    <ConfirmationsSetting value=\"2\" id=\"Add\" />\r\n  </component>\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\"><![CDATA[{\r\n  \"keyToString\": {\r\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\r\n    \"git-widget-placeholder\": \"sign\",\r\n    \"kotlin-language-version-configured\": \"true\",\r\n    \"last_opened_file_path\": \"C:/project3/weatherweargpt\",\r\n    \"settings.editor.selected.configurable\": \"settings.sync\",\r\n    \"settings.editor.splitter.proportion\": \"0.2255144\"\r\n  }\r\n}]]></component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"CopyFile.RECENT_KEYS\">\r\n      <recent name=\"C:\\project3\\weatherweargpt\\src\\components\" />\r\n    </key>\r\n    <key name=\"MoveFile.RECENT_KEYS\">\r\n      <recent name=\"C:\\project3\\weatherweargpt\\public\" />\r\n      <recent name=\"C:\\project3\\weatherweargpt\\src\\components\" />\r\n      <recent name=\"C:\\project3\\weatherweargpt\\src\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"애플리케이션 수준\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"디폴트 작업\">\r\n      <changelist id=\"aa2e9723-b442-4d0e-bb60-89eae371afbb\" name=\"변경\" comment=\"\" />\r\n      <created>1727246890401</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1727246890401</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00015\" summary=\"+mypage\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1727549356363</created>\r\n      <option name=\"number\" value=\"00015\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00015\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1727549356363</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00016\" summary=\"sign\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1727673599952</created>\r\n      <option name=\"number\" value=\"00016\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00016\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1727673599952</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00017\" summary=\"sign\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1727673654936</created>\r\n      <option name=\"number\" value=\"00017\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00017\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1727673654936</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"18\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"RECENT_FILTERS\">\r\n      <map>\r\n        <entry key=\"Branch\">\r\n          <value>\r\n            <list>\r\n              <RecentGroup>\r\n                <option name=\"FILTER_VALUES\">\r\n                  <option value=\"origin/sign\" />\r\n                </option>\r\n              </RecentGroup>\r\n            </list>\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"create sign\" />\r\n    <MESSAGE value=\"login fix&#10;email -&gt; id\" />\r\n    <MESSAGE value=\"sign api connect try\" />\r\n    <MESSAGE value=\"+mypage\" />\r\n    <MESSAGE value=\"sign\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"sign\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	
++++ b/.idea/workspace.xml	
+@@ -5,15 +5,10 @@
+   </component>
+   <component name="ChangeListManager">
+     <list default="true" id="aa2e9723-b442-4d0e-bb60-89eae371afbb" name="변경" comment="sign">
+-      <change afterPath="$PROJECT_DIR$/src/components/SignSocial.css" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/components/chat.css" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/components/Loginform.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Loginform.js" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/components/Sign.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Sign.css" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/components/Sign.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Sign.js" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/components/SignSocial.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SignSocial.js" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/components/mypage.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/mypage.css" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/components/saveAdminInfo.js" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/components/chat.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/chat.js" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -74,7 +69,7 @@
+   <component name="PropertiesComponent"><![CDATA[{
+   "keyToString": {
+     "RunOnceActivity.ShowReadmeOnStart": "true",
+-    "git-widget-placeholder": "sign",
++    "git-widget-placeholder": "c486c722",
+     "kotlin-language-version-configured": "true",
+     "last_opened_file_path": "C:/project3/weatherweargpt",
+     "settings.editor.selected.configurable": "settings.sync",
+Index: src/components/chat.js
+===================================================================
+diff --git a/src/components/chat.js b/src/components/chat.js
+--- a/src/components/chat.js	
++++ b/src/components/chat.js	
+@@ -1,0 +1,102 @@
++import React, { useState, useEffect } from 'react';
++import './chat.css';  // CSS 파일 임포트
++import axios from 'axios';
++
++const Chat = () => {
++  const [messages, setMessages] = useState([]);
++  const [userInput, setUserInput] = useState("");
++  const [userId, setUserId] = useState("12345"); // 사용자 ID를 임시로 지정 (실제 ID로 대체 가능)
++  const [isLoading, setIsLoading] = useState(false);
++
++  // 챗봇의 첫 질문을 요청
++  useEffect(() => {
++    const startChat = async () => {
++      try {
++        const response = await axios.post(`http://localhost:8080/gpt/dialogues/start/${userId}`);
++        const initialQuestion = response.data.question;
++        setMessages([{ text: initialQuestion, sender: "bot" }]);
++      } catch (error) {
++        console.error("Error starting chat:", error);
++      }
++    };
++
++    startChat();
++  }, [userId]);
++
++  // 사용자 입력값 변경 시 업데이트
++  const handleInputChange = (e) => {
++    setUserInput(e.target.value);
++  };
++
++  // 메시지 전송 시 처리
++  const handleSendMessage = async () => {
++    if (userInput.trim() === "") return;
++
++    // 사용자 메시지를 추가
++    const userMessage = { text: userInput, sender: "user" };
++    setMessages([...messages, userMessage]);
++
++    // API에 사용자의 답변 전송
++    setIsLoading(true);
++    try {
++      // 사용자의 답변을 서버에 전송
++      await axios.post(`http://localhost:8080/gpt/dialogues/${userId}`, {
++        message: userInput
++      });
++
++      // 서버에서 챗봇의 응답을 받기
++      const response = await axios.post(`http://localhost:8080/gpt/dialogues/respond/${userId}`);
++      const botResponse = response.data.response;
++
++      // 챗봇 응답 추가
++      setTimeout(() => {
++        setMessages((prevMessages) => [...prevMessages, { text: botResponse, sender: "bot" }]);
++        setIsLoading(false);
++      }, 1000);
++    } catch (error) {
++      console.error("Error sending user message or receiving response:", error);
++      setIsLoading(false);
++    }
++
++    // 입력 필드 초기화
++    setUserInput("");
++  };
++
++  return (
++    <div className="page-container">
++      {/* 1번 구역: 왼쪽 반투명 회색 박스 */}
++      <div className="section-one">
++        <h2>1번 구역</h2>
++      </div>
++
++      {/* 2번 구역: 오른쪽 반투명 박스 (채팅) */}
++      <div className="section-two">
++        {/* 채팅 메시지 목록 */}
++        <div className="chat-container">
++          {messages.map((message, index) => (
++            <div key={index} className={`message message-${message.sender}`}>
++              {message.text}
++            </div>
++          ))}
++          {isLoading && <div className="message message-bot">로딩 중...</div>}
++        </div>
++
++        {/* 입력 영역 */}
++        <div className="input-container">
++          <input
++            type="text"
++            className="input-box"
++            value={userInput}
++            onChange={handleInputChange}
++            placeholder="답변을 입력하세요..."
++          />
++          <button className="send-button" onClick={handleSendMessage}>
++            보내기
++          </button>
++        </div>
++      </div>
++    </div>
++  );
++};
++
++export default Chat;
+\ No newline at end of file
