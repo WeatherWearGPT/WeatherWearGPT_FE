@@ -1,7 +1,12 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+mypage
+import axios from 'axios';
+import './Loginform.css';
+
 import axios from 'axios'; 
 import './Loginform.css'; 
+ main
 
 // 로고 이미지 import
 import naverLogo from './naver_logo.png';
@@ -11,12 +16,20 @@ import weatherwearLogo from './weatherwear_logo.png'; // 새로운 로고 추가
 const LoginForm = () => {
   const [id, setId] = useState('');
   const [password, setPassword] = useState('');
+ mypage
+  const [error, setError] = useState('');
+
   const [error, setError] = useState(''); 
+ main
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+ mypage
+    setError('');
+
     setError(''); 
+ main
 
     try {
       const response = await axios.post('http://your-backend-url.com/auth/login', {
@@ -39,7 +52,11 @@ const LoginForm = () => {
   };
 
   const handleSignUpClick = () => {
+ mypage
+    navigate('/signup');
+
     navigate('/signup'); 
+ main
   };
 
   const handleNaverLogin = () => {
@@ -82,8 +99,13 @@ const LoginForm = () => {
               />
             </div>
             <div className="button-container">
+ mypage
+                <button type="submit" className="login-button">로그인</button>
+                <button type="button" onClick={handleSignUpClick} className="signup-button">회원가입</button>
+
                 <button type="submit" className="loginform-login-button">로그인</button>
                 <button type="button" onClick={handleSignUpClick} className="loginform-signup-button">회원가입</button>
+ main
             </div>
           </form>
 
@@ -106,4 +128,8 @@ const LoginForm = () => {
   );
 };
 
+ mypage
 export default LoginForm;
+
+export default LoginForm;
+ main
