@@ -1,4 +1,5 @@
 import React from 'react';
+mypage
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import axios from 'axios';
 
@@ -9,8 +10,14 @@ import Mypage from './components/mypage';
 import Chat from './components/chat';  // Chat.js 컴포넌트 임포트
 import './App.css';        // App.css 스타일 임포트
 
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Loginform from './components/Loginform';
+import Sign from './components/Sign';
+main
+
 function App() {
   return (
+ ChatGPT
     <div className="page-container">
       {/* 1번 구역 */}
       <div className="section-one">
@@ -27,3 +34,31 @@ function App() {
 
 export default App;
 
+
+    <Router>
+mypage
+      <Routes>
+        {/* 기본 경로 (/)로 접속하면 마이페이지를 보여줍니다 */}
+        <Route path="/" element={<Mypage />} />
+
+        {/* 로그인 페이지 경로 */}
+        <Route path="/loginform" element={<Loginform />} />
+      </Routes>
+
+      <div className="App">
+        <header className="App-header">
+          <Routes>
+            {/* 로그인 페이지 */}
+            <Route path="/" element={<Loginform />} />
+            {/* 회원가입 페이지 */}
+            <Route path="/signup" element={<Sign />} />
+          </Routes>
+        </header>
+      </div>
+main
+    </Router>
+  );
+}
+
+export default App;
+ main
