@@ -60,7 +60,7 @@ const Sign = () => {
 
         try {
             // API 요청 보내기
-            const response = await axios.post('http://localhost:8080.com/register', {
+            const response = await axios.post('http://localhost:8080/register', {
                 id: formData.id,
                 email: formData.email,
                 password: formData.password,

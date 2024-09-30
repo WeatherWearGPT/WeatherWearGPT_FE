@@ -147,3 +147,13 @@
     background-color: #8DDDFF;
     color: white;
 }
+
+.logo-container {
+    margin-bottom: 20px;
+}
+
+.weatherwear-logo {
+    width: 600px;
+    height: auto;
+    object-fit: contain;
+}

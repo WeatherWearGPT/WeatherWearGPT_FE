@@ -1,5 +1,4 @@
-/* 전체 페이지 설정 */
-.signup-page {
+signup-page {
     position: relative;
     width: 100%;
     height: 100vh;
@@ -9,10 +8,20 @@
     align-items: center;
     justify-content: center;
     overflow: hidden;
-  }
+}
 
-  /* 상단바 (헤더) */
-  .navbar {
+.weather-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: url('weather.png') no-repeat center center;
+    background-size: cover;
+    z-index: -1;
+}
+
+.navbar {
     width: 100%;
     height: 86px;
     background-color: #D9D9D9;
@@ -24,28 +33,15 @@
     left: 0;
     z-index: 10;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
+}
 
-  .navbar-title {
+.navbar-title {
     font-family: 'Inter';
     font-size: 30px;
     color: #000000;
-  }
+}
 
-  /* 배경 이미지 */
-  .weather-bg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    background: url('weather.png') no-repeat center center;
-    background-size: cover;
-    z-index: -1;
-  }
-
-  /* 폼 전체를 감싸는 박스 */
-  .signup-container {
+.signup-container {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -53,9 +49,9 @@
     height: calc(100vh - 86px);
     z-index: 1;
     padding-top: 100px;
-  }
+}
 
-  .signup-form-box {
+.signup-form-box {
     width: 643px;
     background-color: rgba(217, 217, 217, 0.8);
     padding: 40px;
@@ -63,63 +59,42 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(10px);
     text-align: center;
-  }
+}
 
-  /* 로고 컨테이너 */
-  .logo-container {
-    margin-bottom: 20px;
-  }
-
-  .weatherwear-logo {
-    width: 600px;
-    height: auto;
-    object-fit: contain;
-  }
-
-  /* 회원가입 폼 */
-  .signup-form {
+.signup-form {
     display: flex;
     flex-direction: column;
-  }
+}
 
-  .form-group {
+.form-group {
     display: flex;
     align-items: center;
     margin-bottom: 20px;
-  }
+}
 
-  /* 일반 입력 필드 */
-  .form-group input {
+.form-group input {
     width: 70%;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 16px;
     text-align: left;
-  }
+}
 
-  /* 플레이스홀더 스타일 */
-  .form-group input::placeholder {
+.form-group input::placeholder {
     text-align: left;
-  }
+}
 
-  /* 성별 선택 칸 크기 조정 */
-  .form-group select {
-    width: 20%; /* 성별 선택 칸의 너비를 더 작게 줄임 */
+.form-group select {
+    width: 20%;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 16px;
     text-align: left;
-  }
+}
 
-  /* 회원가입 버튼 */
-  .button-group {
-    display: flex;
-    justify-content: center;
-  }
-
-  .signup-button {
+.signup-button {
     width: 50%;
     padding: 15px;
     background-color: #8DDDFF;
@@ -129,18 +104,30 @@
     font-size: 18px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    margin-top: 20px; /* 추가 간격 조정 */
-  }
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
 
-  .signup-button:hover {
+.signup-button:hover {
     background-color: #7CC9E6;
-  }
+}
 
-  /* 메시지 출력 */
-  .message {
+.message {
     text-align: center;
     margin-top: 20px;
     color: green;
     font-size: 18px;
     font-weight: bold;
-  }
+}
+
+.logo-container {
+    margin-bottom: 20px;
+}
+
+.weatherwear-logo {
+    width: 600px;
+    height: auto;
+    object-fit: contain;
+}

@@ -1,22 +1,22 @@
 import React, { useState } from 'react';
-import './Sign.css'; // Sign.css 재사용
+import './SignSocial.css';
 import axios from 'axios'; // axios import
 
 const SignSocial = () => {
     const [formData, setFormData] = useState({
-        cm: '',
-        kg: '',
-        sex: ''
+        Height: '',
+        Weight: '',
+        Gender: ''
     });
 
     const [message, setMessage] = useState('');
-    const [errorMessage, setErrorMessage] = useState({ cm: '', kg: '' });
+    const [errorMessage, setErrorMessage] = useState({ Height: '', Weight: '' });
 
     const handleChange = (e) => {
         const { name, value } = e.target;
 
-        // 숫자 확인 로직: cm, kg에 대해 정수 여부 검사
-        if (name === 'cm' || name === 'kg') {
+        // 숫자 확인 로직: Height, Weight 대해 정수 여부 검사
+        if (name === 'Height' || name === 'Weight') {
             if (!/^\d+$/.test(value)) {
                 setErrorMessage({
                     ...errorMessage,
@@ -39,7 +39,7 @@ const SignSocial = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        if (errorMessage.cm || errorMessage.kg) {
+        if (errorMessage.Height || errorMessage.Weight) {
             setMessage('모든 필드가 올바르게 입력되었는지 확인하십시오.');
             return;
         }
@@ -47,9 +47,9 @@ const SignSocial = () => {
         try {
             // POST 요청을 통해 /register/social로 추가 정보 보내기
             const response = await axios.post('http://localhost8080/register/social', {
-                cm: formData.cm,
-                kg: formData.kg,
-                sex: formData.sex
+                Height: formData.Height,
+                Weight: formData.Weight,
+                Gender: formData.Gender
             });
 
             if (response.status === 200) {
@@ -71,18 +71,18 @@ const SignSocial = () => {
                     <h2>추가 정보 입력</h2>
                     <form onSubmit={handleSubmit} className="signup-form">
                         <div className="form-group">
-                            <label>키(cm):</label>
-                            <input type="text" name="cm" value={formData.cm} onChange={handleChange} required />
-                            {errorMessage.cm && <p className="error-message">{errorMessage.cm}</p>}
+                            <label>키(Height):</label>
+                            <input type="text" name="Height" value={formData.Height} onChange={handleChange} required />
+                            {errorMessage.Height && <p className="error-message">{errorMessage.Height}</p>}
                         </div>
                         <div className="form-group">
-                            <label>몸무게(kg):</label>
-                            <input type="text" name="kg" value={formData.kg} onChange={handleChange} required />
-                            {errorMessage.kg && <p className="error-message">{errorMessage.kg}</p>}
+                            <label>몸무게(Weight):</label>
+                            <input type="text" name="Weight" value={formData.Weight} onChange={handleChange} required />
+                            {errorMessage.Weight && <p className="error-message">{errorMessage.Weight}</p>}
                         </div>
                         <div className="form-group">
                             <label>성별:</label>
-                            <select name="sex" value={formData.sex} onChange={handleChange} required>
+                            <select name="Gender" value={formData.Gender} onChange={handleChange} required>
                                 <option value="">선택</option>
                                 <option value="male">남성</option>
                                 <option value="female">여성</option>
