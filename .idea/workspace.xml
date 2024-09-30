@@ -5,25 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aa2e9723-b442-4d0e-bb60-89eae371afbb" name="변경" comment="create sign">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/24__9__30___8_00__Checkout________.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/24__9__30___8_00__Checkout________.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/rebase________.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/rebase________.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WeatherWearGPT_FE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/weathergpt_logo_cut.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Loginform.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Loginform.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Sign.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Sign.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Sign.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Sign.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/SignSocial.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/SignSocial.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Sign.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Sign.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/chat.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/chat.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/chat.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/chat.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/google_logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/mypage.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/mypage.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/naver_logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/weatherwear_logo.png" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,7 +48,7 @@
     </favorite-branches>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="c486c7223f8132f2972a1a14e0499e4232694071" />
+        <entry key="$PROJECT_DIR$" value="chat" />
         <entry key="$PROJECT_DIR$/WeatherWearGPT_FE" value="sign" />
       </map>
     </option>
@@ -81,16 +70,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "chat",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/project3/weatherweargpt",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "settings.editor.splitter.proportion": "0.2255144"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;chat&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/project3/weatherweargpt&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;settings.editor.splitter.proportion&quot;: &quot;0.2255144&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\project3\weatherweargpt\src\components" />
@@ -193,7 +182,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="origin/sign-up" />
+                        <option value="sign" />
                       </list>
                     </value>
                   </entry>

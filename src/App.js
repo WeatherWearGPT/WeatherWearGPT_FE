@@ -1,31 +1,15 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-//import Loginform from './components/Loginform';
-import Sign from './components/Sign';
-//import SignSocial from './components/SignSocial';
-//import Mypage from './components/mypage';
-import Chat from './components/chat';
-import './App.css';
-
+import Chat from './components/chat'; // Chat 컴포넌트를 import
 
 function App() {
   return (
     <Router>
       <div className="App">
-        <header className="App-header">
-          <Routes>
-//            {/* 로그인 페이지 */}
-//            <Route path="/" element={<Loginform />} />
-//            {/* 회원가입 페이지 */}
-//            <Route path="/signup" element={<Sign />} />
-//            {/* 소셜 로그인 사용자 추가 정보 페이지 */}
-//            <Route path="/SignSocial" element={<SignSocial />} />
-//            {/* 마이페이지 */}
-//            <Route path="/mypage" element={<Mypage />} />
-            {/* 채팅 페이지 */}
-            <Route path="/chat" element={<Chat />} />
-          </Routes>
-        </header>
+        <Routes>
+          {/* 기본 경로에 Chat 컴포넌트를 렌더링 */}
+          <Route path="/" element={<Chat />} />
+        </Routes>
       </div>
     </Router>
   );

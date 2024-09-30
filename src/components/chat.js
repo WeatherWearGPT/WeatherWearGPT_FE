@@ -1,18 +1,18 @@
 import React, { useState, useEffect } from 'react';
-import './chat.css';  // CSS 파일 임포트
+import './chat.css';  // 디자인용 CSS 파일을 불러옴
 import axios from 'axios';
 
 const Chat = () => {
   const [messages, setMessages] = useState([]);
   const [userInput, setUserInput] = useState("");
-  const [userId, setUserId] = useState("12345"); // 사용자 ID를 임시로 지정 (실제 ID로 대체 가능)
+  const [userId, setUserId] = useState("12345"); // 사용자 ID를 임시로 지정
   const [isLoading, setIsLoading] = useState(false);
 
-  // 챗봇의 첫 질문을 요청
+  // 첫 질문 요청 (원격 API 주석 처리된 부분)
   useEffect(() => {
     const startChat = async () => {
       try {
-        const response = await axios.post(`localhost:8080/gpt/dialogues/start/${userId}`);
+        const response = await axios.post(`http://localhost:8080/gpt/dialogues/start/${userId}`);
         const initialQuestion = response.data.question;
         setMessages([{ text: initialQuestion, sender: "bot" }]);
       } catch (error) {
@@ -23,12 +23,12 @@ const Chat = () => {
     startChat();
   }, [userId]);
 
-  // 사용자 입력값 변경 시 업데이트
+  // 사용자 입력값 업데이트
   const handleInputChange = (e) => {
     setUserInput(e.target.value);
   };
 
-  // 메시지 전송 시 처리
+  // 메시지 전송 처리
   const handleSendMessage = async () => {
     if (userInput.trim() === "") return;
 
@@ -36,19 +36,14 @@ const Chat = () => {
     const userMessage = { text: userInput, sender: "user" };
     setMessages([...messages, userMessage]);
 
-    // API에 사용자의 답변 전송
+    // 서버에 답변 전송 및 응답 처리 (원격 API 처리)
     setIsLoading(true);
     try {
-      // 사용자의 답변을 서버에 전송
-      await axios.post(`http://localhost:8080/gpt/dialogues/${userId}`, {
-        message: userInput
-      });
+      await axios.post(`http://localhost:8080/gpt/dialogues/${userId}`, { message: userInput });
 
-      // 서버에서 챗봇의 응답을 받기
       const response = await axios.post(`http://localhost:8080/gpt/dialogues/respond/${userId}`);
       const botResponse = response.data.response;
 
-      // 챗봇 응답 추가
       setTimeout(() => {
         setMessages((prevMessages) => [...prevMessages, { text: botResponse, sender: "bot" }]);
         setIsLoading(false);
@@ -64,14 +59,13 @@ const Chat = () => {
 
   return (
     <div className="page-container">
-      {/* 1번 구역: 왼쪽 반투명 회색 박스 */}
       <div className="section-one">
-        <h2>1번 구역</h2>
+        <p>24.09.24</p>
+        <p>24.09.23</p>
+        <p>24.09.22</p>
       </div>
 
-      {/* 2번 구역: 오른쪽 반투명 박스 (채팅) */}
       <div className="section-two">
-        {/* 채팅 메시지 목록 */}
         <div className="chat-container">
           {messages.map((message, index) => (
             <div key={index} className={`message message-${message.sender}`}>
@@ -81,7 +75,6 @@ const Chat = () => {
           {isLoading && <div className="message message-bot">로딩 중...</div>}
         </div>
 
-        {/* 입력 영역 */}
         <div className="input-container">
           <input
             type="text"
