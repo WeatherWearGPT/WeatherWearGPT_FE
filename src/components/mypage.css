@@ -80,6 +80,11 @@
     font-size: 16px;
 }
 
+/* 플레이스홀더 텍스트 좌측 정렬 */
+.form-group input::placeholder {
+    text-align: left;
+}
+
 /* 버튼 스타일 */
 .button-container {
     display: flex;

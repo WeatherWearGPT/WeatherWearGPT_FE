@@ -69,33 +69,34 @@ const MyPage = () => {
             <div className="form-box">
                 <form onSubmit={handleSubmit} className="signup-form">
                     <div className="form-group">
-                        <label>키(cm):</label>
                         <input
                             type="text"
                             name="cm"
                             value={formData.cm}
                             onChange={handleChange}
+                            placeholder="키를 입력하세요"
                             required
                         />
                     </div>
                     <div className="form-group">
-                        <label>몸무게(kg):</label>
                         <input
                             type="text"
                             name="kg"
                             value={formData.kg}
                             onChange={handleChange}
+                            placeholder="몸무게를 입력하세요"
                             required
                         />
                     </div>
-                        <div className="form-group">
-                            <label>성별:</label>
-                            <select name="sex" value={formData.sex} onChange={handleChange} required>
-                                <option value="">선택</option>
-                                <option value="male">남성</option>
-                                <option value="female">여성</option>
-                            </select>
-                        </div>                    <div className="button-container">
+                    <div className="form-group">
+                        <label>성별:</label>
+                        <select name="sex" value={formData.sex} onChange={handleChange} required>
+                            <option value="">선택</option>
+                            <option value="male">남성</option>
+                            <option value="female">여성</option>
+                        </select>
+                    </div>
+                    <div className="button-container">
                         <button type="submit" className="button update-button">수정하기</button>
                         <button type="button" className="button delete-button" onClick={handleDeleteClick}>회원탈퇴</button>
                     </div>
