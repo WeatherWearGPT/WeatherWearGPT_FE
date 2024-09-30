@@ -45,7 +45,6 @@ const LoginForm = () => {
   const handleNaverLogin = () => {
     window.location.href = 'http://localhost:8080.com/auth/naver';
   };
-
   const handleGoogleLogin = () => {
     window.location.href = 'http://localhost:8080.com/auth/google';
   };
