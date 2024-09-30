@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import './Sign.css'; // Sign.css 파일을 import
-import axios from 'axios'; // axios import
-
 
 const Sign = () => {
     const [formData, setFormData] = useState({
@@ -9,19 +8,22 @@ const Sign = () => {
         email: '',
         password: '',
         passwordcheck: '',
-        cm: '',
-        kg: '',
-        sex: ''
+        Height: '',
+        Weight: '',
+        Gender: ''
     });
 
     const [message, setMessage] = useState('');
-    const [errorMessage, setErrorMessage] = useState({ cm: '', kg: '' });
+    const [token, setToken] = useState(''); // 토큰 상태 관리
+    const [errorMessage, setErrorMessage] = useState({ Height: '', Weight: '' }); // 에러 메시지 상태 관리
+
+    //const API_BASE_URL = 'http://localhost:8080'; // API 기본 URL 설정
 
     const handleChange = (e) => {
         const { name, value } = e.target;
 
-        // 숫자 확인 로직: cm, kg에 대해 정수 여부 검사
-        if (name === 'cm' || name === 'kg') {
+        // 숫자 확인 로직: Height, kg에 대해 정수 여부 검사
+        if (name === 'Height' || name === 'Weight') {
             if (!/^\d+$/.test(value)) {
                 setErrorMessage({
                     ...errorMessage,
@@ -44,41 +46,59 @@ const Sign = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
+        // 비밀번호 확인 로직
         if (formData.password !== formData.passwordcheck) {
             setMessage('비밀번호가 일치하지 않습니다.');
             return;
         }
 
-        if (errorMessage.cm || errorMessage.kg) {
+        // 정수가 아닌 값이 있는지 확인
+        if (errorMessage.Height || errorMessage.Weight) {
             setMessage('모든 필드가 올바르게 입력되었는지 확인하십시오.');
             return;
         }
 
         try {
-            // POST 요청을 통해 /register로 일반 회원가입 정보 보내기
-            const response = await axios.post('http://localhost8080/register', {
+            // API 요청 보내기
+            const response = await axios.post('http://localhost:8080.com/register', {
                 id: formData.id,
                 email: formData.email,
                 password: formData.password,
-                cm: formData.cm,
-                kg: formData.kg,
-                sex: formData.sex
+                Height: formData.Height,
+                Weight: formData.Weight,
+                Gender: formData.Gender
             });
 
+            // API 응답 확인
             if (response.status === 200) {
-                setMessage('회원가입에 성공하셨습니다.');
+                const { accessToken } = response.data; // 응답에서 토큰 추출
+                if (accessToken) {
+                    setToken(accessToken); // 토큰 상태 업데이트
+                    setMessage('회원가입에 성공하셨습니다.');
+                } else {
+                    setMessage('토큰이 없습니다.');
+                }
+            } else {
+                setMessage('회원가입 실패: 서버 오류');
             }
         } catch (error) {
-            console.error('회원가입 실패:', error);
-            setMessage('회원가입에 실패했습니다.');
+            // 오류 처리
+            if (error.response) {
+                setMessage(`회원가입 실패: ${error.response.data.message}`);
+            } else {
+                setMessage('네트워크 오류가 발생했습니다.');
+            }
         }
     };
 
     return (
         <div className="signup-page">
+            {/* 상단바 */}
             <div className="navbar">
                 <p className="navbar-title">회원가입</p>
             </div>
+
+            {/* 회원가입 폼 컨테이너 */}
             <div className="signup-container">
                 <div className="signup-form-box">
                     <h2>회원가입</h2>
@@ -100,18 +120,30 @@ const Sign = () => {
                             <input type="password" name="passwordcheck" value={formData.passwordcheck} onChange={handleChange} required />
                         </div>
                         <div className="form-group">
-                            <label>키(cm):</label>
-                            <input type="text" name="cm" value={formData.cm} onChange={handleChange} required />
-                            {errorMessage.cm && <p className="error-message">{errorMessage.cm}</p>}
+                            <label>키(Height):</label>
+                            <input
+                                type="text"
+                                name="Height"
+                                value={formData.Height}
+                                onChange={handleChange}
+                                required
+                            />
+                            {errorMessage.Height && <p className="error-message">{errorMessage.cm}</p>}
                         </div>
                         <div className="form-group">
-                            <label>몸무게(kg):</label>
-                            <input type="text" name="kg" value={formData.kg} onChange={handleChange} required />
-                            {errorMessage.kg && <p className="error-message">{errorMessage.kg}</p>}
+                            <label>몸무게(Weight):</label>
+                            <input
+                                type="text"
+                                name="Weight"
+                                value={formData.Weight}
+                                onChange={handleChange}
+                                required
+                            />
+                            {errorMessage.Weight && <p className="error-message">{errorMessage.Weight}</p>}
                         </div>
                         <div className="form-group">
                             <label>성별:</label>
-                            <select name="sex" value={formData.sex} onChange={handleChange} required>
+                            <select name="Gender" value={formData.Gender} onChange={handleChange} required>
                                 <option value="">선택</option>
                                 <option value="male">남성</option>
                                 <option value="female">여성</option>
@@ -119,7 +151,12 @@ const Sign = () => {
                         </div>
                         <button type="submit" className="signup-button">회원가입</button>
                     </form>
+
+                    {/* 서버 응답 메시지 표시 */}
                     {message && <p className="message">{message}</p>}
+
+                    {/* 토큰 확인 */}
+                    {token && <p>받은 토큰: {token}</p>}
                 </div>
             </div>
         </div>

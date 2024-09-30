@@ -6,6 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="aa2e9723-b442-4d0e-bb60-89eae371afbb" name="변경" comment="+mypage">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Loginform.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Loginform.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Sign.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Sign.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,16 +65,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;sign-up&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/project3/weatherweargpt&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;settings.sync&quot;,
-    &quot;settings.editor.splitter.proportion&quot;: &quot;0.2255144&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "sign",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/project3/weatherweargpt",
+    "settings.editor.selected.configurable": "settings.sync",
+    "settings.editor.splitter.proportion": "0.2255144"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\project3\weatherweargpt\src\components" />

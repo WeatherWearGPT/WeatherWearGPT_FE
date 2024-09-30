@@ -19,7 +19,7 @@ const LoginForm = () => {
     setError('');
 
     try {
-      const response = await axios.post('http://your-backend-url.com/auth/login', {
+      const response = await axios.post('http://localhost8080.com/auth/login', {
         id: id,
         password: password,
       });
@@ -43,11 +43,11 @@ const LoginForm = () => {
   };
 
   const handleNaverLogin = () => {
-    window.location.href = 'http://your-backend-url.com/auth/naver';
+    window.location.href = 'http://localhost:8080.com/auth/naver';
   };
 
   const handleGoogleLogin = () => {
-    window.location.href = 'http://your-backend-url.com/auth/google';
+    window.location.href = 'http://localhost:8080.com/auth/google';
   };
 
   return (
