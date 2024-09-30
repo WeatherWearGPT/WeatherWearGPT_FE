@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import './mypage.css'; // 스타일 불러오기
-import './Loginform'; // 로그인 페이지
-import './SignSocial'; // 소셜로그인 페이지
+import './mypage.css'; 
+import './Loginform'; 
+import './SignSocial'; 
+import weatherwearLogo from './weatherwear_logo.png'; 
 
 const MyPage = () => {
     const [formData, setFormData] = useState({
@@ -67,6 +68,9 @@ const MyPage = () => {
             </div>
 
             <div className="form-box">
+                <div className="logo-container">
+                    <img src={weatherwearLogo} alt="WeatherWear Logo" className="weatherwear-logo" />
+                </div>
                 <form onSubmit={handleSubmit} className="signup-form">
                     <div className="form-group">
                         <input
@@ -74,7 +78,7 @@ const MyPage = () => {
                             name="cm"
                             value={formData.cm}
                             onChange={handleChange}
-                            placeholder="키를 입력하세요"
+                            placeholder="키(cm)"
                             required
                         />
                     </div>
@@ -84,14 +88,13 @@ const MyPage = () => {
                             name="kg"
                             value={formData.kg}
                             onChange={handleChange}
-                            placeholder="몸무게를 입력하세요"
+                            placeholder="몸무게(kg)"
                             required
                         />
                     </div>
                     <div className="form-group">
-                        <label>성별:</label>
                         <select name="sex" value={formData.sex} onChange={handleChange} required>
-                            <option value="">선택</option>
+                            <option value="">성별</option>
                             <option value="male">남성</option>
                             <option value="female">여성</option>
                         </select>

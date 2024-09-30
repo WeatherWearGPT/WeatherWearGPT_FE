@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import './Sign.css'; // Sign.css 재사용
-import axios from 'axios'; // axios import
+import './SignSocial.css'; 
+import axios from 'axios'; 
+import weatherwearLogo from './weatherwear_logo.png'; 
 
 const SignSocial = () => {
     const [formData, setFormData] = useState({
@@ -67,23 +68,37 @@ const SignSocial = () => {
                 <p className="navbar-title">추가 정보 입력</p>
             </div>
             <div className="signup-container">
+            <div className="weather-bg"></div>
                 <div className="signup-form-box">
-                    <h2>추가 정보 입력</h2>
+                <div className="logo-container">
+                    <img src={weatherwearLogo} alt="WeatherWear Logo" className="weatherwear-logo" />
+                </div>
                     <form onSubmit={handleSubmit} className="signup-form">
                         <div className="form-group">
-                            <label>키(cm):</label>
-                            <input type="text" name="cm" value={formData.cm} onChange={handleChange} required />
+                            <input
+                                type="text"
+                                name="cm"
+                                value={formData.cm}
+                                onChange={handleChange}
+                                placeholder="키(cm)"
+                                required
+                            />
                             {errorMessage.cm && <p className="error-message">{errorMessage.cm}</p>}
                         </div>
                         <div className="form-group">
-                            <label>몸무게(kg):</label>
-                            <input type="text" name="kg" value={formData.kg} onChange={handleChange} required />
+                            <input
+                                type="text"
+                                name="kg"
+                                value={formData.kg}
+                                onChange={handleChange}
+                                placeholder="몸무게(kg)"
+                                required
+                            />
                             {errorMessage.kg && <p className="error-message">{errorMessage.kg}</p>}
                         </div>
                         <div className="form-group">
-                            <label>성별:</label>
                             <select name="sex" value={formData.sex} onChange={handleChange} required>
-                                <option value="">선택</option>
+                                <option value="">성별</option>
                                 <option value="male">남성</option>
                                 <option value="female">여성</option>
                             </select>
