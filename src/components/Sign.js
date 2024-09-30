@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
-import './Sign.css'; // Sign.css 파일을 import
-
-// 로고 이미지 import
-import weatherwearLogo from './weatherwear_logo.png'; // 로고 파일 경로는 로그인 페이지와 동일하게 사용
+import './Sign.css'; 
+import weatherwearLogo from './weatherwear_logo.png'; 
 
 const Sign = () => {
   const [formData, setFormData] = useState({

@@ -18,7 +18,7 @@ function App() {
             {/* 회원가입 페이지 */}
             <Route path="/signup" element={<Sign />} />
             {/* 소셜 로그인 사용자 추가 정보 페이지 */}
-            <Route path="/SignSocial" element={<SignSocial />} />
+            <Route path="/signsocial" element={<SignSocial />} />
             {/* 마이페이지 */}
             <Route path="/mypage" element={<Mypage />} />
             {/* 채팅 페이지 */}

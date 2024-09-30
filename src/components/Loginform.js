@@ -3,10 +3,9 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios'; 
 import './Loginform.css'; 
 
-// 로고 이미지 import
 import naverLogo from './naver_logo.png';
 import googleLogo from './google_logo.png';
-import weatherwearLogo from './weatherwear_logo.png'; // 새로운 로고 추가
+import weatherwearLogo from './weatherwear_logo.png'; 
 
 const LoginForm = () => {
   const [id, setId] = useState('');
@@ -52,7 +51,6 @@ const LoginForm = () => {
 
   return (
     <div className="login-page">
-
       <div className="login-container">
         <div className="weather-bg"></div>
         <div className="login-form-box">
@@ -67,7 +65,7 @@ const LoginForm = () => {
                 id="id"
                 value={id}
                 onChange={(e) => setId(e.target.value)}
-                placeholder="아이디" /* 플레이스홀더 추가 */
+                placeholder="아이디"
                 required
               />
             </div>
@@ -77,7 +75,7 @@ const LoginForm = () => {
                 id="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                placeholder="비밀번호" /* 플레이스홀더 추가 */
+                placeholder="비밀번호" 
                 required
               />
             </div>
