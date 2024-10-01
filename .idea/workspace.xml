@@ -5,12 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aa2e9723-b442-4d0e-bb60-89eae371afbb" name="변경" comment="create sign">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/24__9__30___8_00__Checkout________.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/24__9__30___8_00__Checkout________.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/rebase________.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/rebase________.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Loginform.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Loginform.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Sign.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Sign.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/SignSocial.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/SignSocial.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/google_logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/naver_logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/weatherwear_logo.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WeatherWearGPT_FE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/robots.txt" beforeDir="false" afterPath="$PROJECT_DIR$/public/robots.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Sign.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Sign.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/chat.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/chat.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/chat.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/chat.js" afterDir="false" />
     </list>
@@ -182,7 +189,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="sign" />
+                        <option value="main/sign-up" />
                       </list>
                     </value>
                   </entry>
