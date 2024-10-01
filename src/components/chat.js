@@ -6,7 +6,7 @@ const Chat = () => {
   const [messages, setMessages] = useState([]);  // 메시지 목록
   const [userInput, setUserInput] = useState('');  // 사용자 입력
   const [isLoading, setIsLoading] = useState(false);  // 로딩 상태
-  const userId = 12345;  // 임시 사용자 ID (실제로는 로그인 시 얻어야 함)
+  const userId = 12345;  // 실제로는 로그인 시 얻어야 함
 
   // 1. 대화 시작 - GPT가 첫 번째 질문을 물어봄
   useEffect(() => {
