@@ -88,7 +88,7 @@ const MyPage = () => {
                             name="kg"
                             value={formData.kg}
                             onChange={handleChange}
-                            placeholder="몸무게(kg)"
+                            placeholder="몸무게()"
                             required
                         />
                     </div>

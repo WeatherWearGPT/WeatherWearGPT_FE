@@ -1,8 +1,12 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Sign.css'; 
 import weatherwearLogo from './weatherwear_logo.png'; 
+import axios from 'axios'; 
 
 const Sign = () => {
+  const navigate = useNavigate();  // useNavigate 훅 사용
+
   const [formData, setFormData] = useState({
     id: '',
     email: '',
@@ -23,27 +27,36 @@ const Sign = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (formData.password !== formData.passwordcheck) {
       setMessage('비밀번호가 일치하지 않습니다.');
       return;
     }
-    setMessage('회원가입에 성공하셨습니다.');
+
+    try {
+      // 회원가입 요청 보내기
+      const response = await axios.post('http://localhost:8080/register', formData);
+      if (response.status === 200) {
+        setMessage('회원가입에 성공하셨습니다.');
+        // 회원가입 성공 후 로그인 페이지로 이동
+        navigate('/login');
+      }
+    } catch (error) {
+      console.error('회원가입 실패:', error);
+      setMessage('회원가입에 실패하였습니다.');
+    }
   };
 
   return (
     <div className="signup-page">
-      {/* 회원가입 폼 컨테이너 */}
       <div className="signup-container">
         <div className="weather-bg"></div>
         <div className="signup-form-box">
-          {/* 로고를 폼 상단에 추가 */}
           <div className="logo-container">
             <img src={weatherwearLogo} alt="WeatherWear Logo" className="weatherwear-logo" />
           </div>
           <form onSubmit={handleSubmit} className="signup-form">
-            {/* 각각의 입력 필드 */}
             <div className="form-group">
               <input
                 type="text"

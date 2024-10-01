@@ -8,25 +8,42 @@ import googleLogo from './google_logo.png';
 import weatherwearLogo from './weatherwear_logo.png'; 
 
 const LoginForm = () => {
-  const [id, setId] = useState('');
+  const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState(''); 
   const navigate = useNavigate();
+  const params = new URLSearchParams();
+  params.append('username', username);
+  params.append('password', password);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError(''); 
-
+    setError('');
+    console.log("Submitting login with", username, password);
+  
     try {
-      const response = await axios.post('http://your-backend-url.com/auth/login', {
-        id: id,
-        password: password,
+      const params = new URLSearchParams();
+      params.append('username', username);
+      params.append('password', password);
+  
+      const response = await axios.post('http://localhost:8080/login', params, {
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
       });
-
+  
       if (response.status === 200) {
         console.log('로그인 성공:', response.data);
-        localStorage.setItem('accessToken', response.data.accessToken);
-        navigate('/dashboard');
+        
+        // 헤더에서 accessToken 가져오기
+        const accessToken = response.headers['authorization'].replace('Bearer ', '');
+        localStorage.setItem('accessToken', accessToken);
+  
+        // 응답 본문에서 userId 가져오기
+        const userId = response.data.userId;
+  
+        // 로그인 성공 후 채팅 페이지로 이동
+        navigate(`/chat/${userId}`);
       }
     } catch (err) {
       if (err.response) {
@@ -42,11 +59,11 @@ const LoginForm = () => {
   };
 
   const handleNaverLogin = () => {
-    window.location.href = 'http://your-backend-url.com/auth/naver';
+    window.location.href = 'http://localhost:8080/oauth2/authorization/naver';
   };
-
+  
   const handleGoogleLogin = () => {
-    window.location.href = 'http://your-backend-url.com/auth/google';
+    window.location.href = 'http://localhost:8080/oauth2/authorization/google';
   };
 
   return (
@@ -62,9 +79,9 @@ const LoginForm = () => {
             <div className="form-group">
               <input
                 type="text"
-                id="id"
-                value={id}
-                onChange={(e) => setId(e.target.value)}
+                id="username"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
                 placeholder="아이디"
                 required
               />

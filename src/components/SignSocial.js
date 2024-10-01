@@ -16,7 +16,6 @@ const SignSocial = () => {
     const handleChange = (e) => {
         const { name, value } = e.target;
 
-        // 숫자 확인 로직: cm, kg에 대해 정수 여부 검사
         if (name === 'cm' || name === 'kg') {
             if (!/^\d+$/.test(value)) {
                 setErrorMessage({
@@ -46,12 +45,20 @@ const SignSocial = () => {
         }
 
         try {
-            // POST 요청을 통해 /register/social로 추가 정보 보내기
-            const response = await axios.post('http://localhost8080/register/social', {
-                cm: formData.cm,
-                kg: formData.kg,
-                sex: formData.sex
-            });
+            const token = localStorage.getItem('accessToken');
+            const response = await axios.post(
+                'http://localhost:8080/register/social',
+                {
+                    height: formData.cm,
+                    weight: formData.kg,
+                    gender: formData.sex,
+                },
+                {
+                    headers: {
+                        Authorization: token,
+                    },
+                }
+            );
 
             if (response.status === 200) {
                 setMessage('추가 정보가 성공적으로 저장되었습니다.');
@@ -68,11 +75,11 @@ const SignSocial = () => {
                 <p className="navbar-title">추가 정보 입력</p>
             </div>
             <div className="signup-container">
-            <div className="weather-bg"></div>
+                <div className="weather-bg"></div>
                 <div className="signup-form-box">
-                <div className="logo-container">
-                    <img src={weatherwearLogo} alt="WeatherWear Logo" className="weatherwear-logo" />
-                </div>
+                    <div className="logo-container">
+                        <img src={weatherwearLogo} alt="WeatherWear Logo" className="weatherwear-logo" />
+                    </div>
                     <form onSubmit={handleSubmit} className="signup-form">
                         <div className="form-group">
                             <input

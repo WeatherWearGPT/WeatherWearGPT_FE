@@ -14,15 +14,15 @@ function App() {
         <header className="App-header">
           <Routes>
             {/* 로그인 페이지 */}
-            <Route path="/" element={<Loginform />} />
+            <Route path="/login" element={<Loginform />} />
             {/* 회원가입 페이지 */}
             <Route path="/signup" element={<Sign />} />
             {/* 소셜 로그인 사용자 추가 정보 페이지 */}
-            <Route path="/signsocial" element={<SignSocial />} />
+            <Route path="/social-signup" element={<SignSocial />} />
             {/* 마이페이지 */}
-            <Route path="/mypage" element={<Mypage />} />
+            <Route path="/mypage/:userId" element={<Mypage />} />
             {/* 채팅 페이지 */}
-            <Route path="/chat" element={<Chat />} />
+            <Route path="/chat/:userId" element={<Chat />} />
           </Routes>
         </header>
       </div>
