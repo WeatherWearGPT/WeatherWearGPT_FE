@@ -13,12 +13,16 @@ function App() {
       <div className="App">
         <header className="App-header">
           <Routes>
-            <Route path="/" element={<Chat />} />
-            <Route path="/login" element={<Loginform />} />
+            {/* 로그인 페이지 */}
+            <Route path="/" element={<Loginform />} />
+            {/* 회원가입 페이지 */}
             <Route path="/signup" element={<Sign />} />
-            <Route path="/social-signup" element={<SignSocial />} />
-            <Route path="/mypage/:userId" element={<Mypage />} />
-            <Route path="/chat/:userId" element={<Chat />} />
+            {/* 소셜 로그인 사용자 추가 정보 페이지 */}
+            <Route path="/signsocial" element={<SignSocial />} />
+            {/* 마이페이지 */}
+            <Route path="/mypage" element={<Mypage />} />
+            {/* 채팅 페이지 */}
+            <Route path="/chat" element={<Chat />} />
           </Routes>
         </header>
       </div>

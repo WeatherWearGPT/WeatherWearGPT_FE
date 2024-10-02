@@ -70,8 +70,8 @@ const MyPage = () => {
                 setShowModal(false);
                 alert('회원탈퇴 되었습니다.');
                 setTimeout(() => {
-                    navigate('/login'); // 2초 뒤 로그인 페이지로 이동
-                }, 2000);
+                    navigate('/login');
+                }, 0);
             }
         } catch (err) {
             alert('회원탈퇴에 실패했습니다.');

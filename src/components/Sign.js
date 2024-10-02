@@ -50,13 +50,18 @@ const Sign = () => {
 
   return (
     <div className="signup-page">
+      {/* 회원가입 폼 컨테이너 */}
       <div className="signup-container">
         <div className="weather-bg"></div>
         <div className="signup-form-box">
+          
+          {/* 로고를 폼 상단에 추가 */}
           <div className="logo-container">
             <img src={weatherwearLogo} alt="WeatherWear Logo" className="weatherwear-logo" />
           </div>
           <form onSubmit={handleSubmit} className="signup-form">
+
+            {/* 각각의 입력 필드 */}
             <div className="form-group">
               <input
                 type="text"
