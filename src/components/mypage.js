@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 import './mypage.css'; 
 import './Loginform'; 
@@ -15,6 +15,7 @@ const MyPage = () => {
     const [showModal, setShowModal] = useState(false); // 모달 표시 상태
     const [message, setMessage] = useState(''); // 저장된 메시지 상태
     const navigate = useNavigate();
+    const { userId } = useParams(); // userId를 URL 파라미터에서 가져옴
 
     // 입력값 업데이트
     const handleChange = (e) => {
@@ -26,9 +27,30 @@ const MyPage = () => {
     };
 
     // 수정하기 버튼 클릭 시
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        setMessage('정보가 성공적으로 수정되었습니다.');
+        setMessage('');
+
+        // FormData 객체 생성
+        const formDataToSend = new FormData();
+        formDataToSend.append('cm', formData.cm);
+        formDataToSend.append('kg', formData.kg);
+        formDataToSend.append('sex', formData.sex);
+
+        try {
+            const response = await axios.patch(`http://localhost:8080/user/${userId}`, formDataToSend, {
+                headers: {
+                    Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
+                    'Content-Type': 'multipart/form-data',
+                },
+            });
+
+            if (response.status === 200) {
+                setMessage('정보가 성공적으로 수정되었습니다.');
+            }
+        } catch (err) {
+            setMessage('정보 수정에 실패했습니다.');
+        }
     };
 
     // 회원탈퇴 버튼 클릭 시 모달 띄우기
@@ -37,12 +59,23 @@ const MyPage = () => {
     };
 
     // 모달에서 '예' 클릭 시 회원 탈퇴 처리
-    const handleConfirmDelete = () => {
-        setShowModal(false);
-        alert('회원탈퇴 되었습니다.');
-        setTimeout(() => {
-            navigate('/loginform'); // 2초 뒤 로그인 페이지로 이동
-        }, 2000);
+    const handleConfirmDelete = async () => {
+        try {
+            const response = await axios.delete(`http://localhost:8080/user/${userId}`, {
+                headers: {
+                    Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
+                },
+            });
+            if (response.status === 200) {
+                setShowModal(false);
+                alert('회원탈퇴 되었습니다.');
+                setTimeout(() => {
+                    navigate('/login'); // 2초 뒤 로그인 페이지로 이동
+                }, 2000);
+            }
+        } catch (err) {
+            alert('회원탈퇴에 실패했습니다.');
+        }
     };
 
     // 모달에서 '아니오' 클릭 시 모달 닫기
@@ -58,7 +91,7 @@ const MyPage = () => {
                     <div className="icon" onClick={() => navigate('/')}>
                         <img src="./icons/home.png" alt="홈" />
                     </div>
-                    <div className="icon" onClick={() => navigate('/mypage')}>
+                    <div className="icon" onClick={() => navigate(`/mypage/${userId}`)}>
                         <img src="./icons/user.png" alt="마이페이지" />
                     </div>
                     <div className="icon" onClick={() => navigate('/logout')}>
@@ -88,7 +121,7 @@ const MyPage = () => {
                             name="kg"
                             value={formData.kg}
                             onChange={handleChange}
-                            placeholder="몸무게()"
+                            placeholder="몸무게(kg)"
                             required
                         />
                     </div>
@@ -104,7 +137,7 @@ const MyPage = () => {
                         <button type="button" className="button delete-button" onClick={handleDeleteClick}>회원탈퇴</button>
                     </div>
                 </form>
-                {message && <p>{message}</p>}
+                {message && <p className="message">{message}</p>}
             </div>
 
             {showModal && (

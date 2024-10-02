@@ -59,12 +59,12 @@ const LoginForm = () => {
   };
 
   const handleNaverLogin = () => {
-    window.location.href = 'http://localhost:8080/oauth2/authorization/naver';
-  };
-  
-  const handleGoogleLogin = () => {
-    window.location.href = 'http://localhost:8080/oauth2/authorization/google';
-  };
+    window.location.href = 'http://ec2-43-202-86-72.ap-northeast-2.compute.amazonaws.com:8080/oauth2/authorization/naver';
+};
+
+const handleGoogleLogin = () => {
+    window.location.href = 'http://ec2-43-202-86-72.ap-northeast-2.compute.amazonaws.com:8080/oauth2/authorization/google';
+};
 
   return (
     <div className="login-page">
