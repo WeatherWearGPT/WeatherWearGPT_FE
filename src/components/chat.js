@@ -1,34 +1,31 @@
 import React, { useState, useEffect } from 'react';
 import './chat.css';  // CSS 파일 임포트
 import axios from 'axios';
-const API_BASE_URL = process.env.REACT_APP_API_BASE_URL; // 절대경로 url
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || 'http://43.202.86.72:8080/';  // 절대경로 url
 
 const Chat = () => {
   const [messages, setMessages] = useState([]);  // 메시지 목록
   const [userInput, setUserInput] = useState('');  // 사용자 입력
   const [isLoading, setIsLoading] = useState(false);  // 로딩 상태
-  const [chatStarted, setChatStarted] = useState(false);  // 대화 시작 여부
-  const userId = 12345;  // 실제로는 로그인 시 얻어야 함
+  const [userId, setUserId] = useState(null);  // 로그인한 사용자의 userId
 
   // 1. 대화 시작 - GPT가 첫 번째 질문을 물어봄
   useEffect(() => {
     const startChat = async () => {
-      if (chatStarted) return;  // 대화가 이미 시작되었으면 중단
-      setChatStarted(true);  // 대화 시작 상태로 변경
-
       try {
-        console.log("대화 시작 중...");  // 대화 시작 1회만 출력
+        console.log("대화 시작 중...");
         // GPT와 대화 시작
-        const start = await axios.post(`${API_BASE_URL}/gpt/dialogues/start/${userId}`);
-        console.log("API Response (Start Chat):", start.data);  // 응답 데이터 확인
-        const initialQuestion = start.data.questionAsked || "Q1. 오늘 외출을 하시나요?";  // 첫 질문
-        setMessages([{ text: initialQuestion, sender: "bot" }]);  // 첫 질문을 화면에 출력
+        const response = await axios.post(`${API_BASE_URL}/gpt/dialogues/start/${userId}`);
+        console.log("API 응답 (첫 질문):", response.data);  // 서버 응답 디버깅
+
+        const initialQuestion = response.data.questionAsked || "Q1. 오늘 외출을 하시나요?";
+        setMessages([{ text: initialQuestion, sender: "bot" }]);  // 메시지 상태 업데이트
       } catch (error) {
-        console.error("Error starting chat:", error);
+        console.error("대화 시작 오류:", error);
       }
     };
     startChat();  // 컴포넌트 마운트 시 대화 시작
-  }, [userId, chatStarted]);
+  }, [userId]);
 
   // 입력값 변화 처리
   const handleInputChange = (e) => {
@@ -47,19 +44,19 @@ const Chat = () => {
 
     try {
       console.log("사용자 메시지 전송 중:", userInput);  // 사용자 메시지 로그 출력
-      // 2. 사용자의 응답을 서버에 전송
+      // 사용자의 응답을 서버에 전송
       await axios.post(`${API_BASE_URL}/gpt/dialogues/respond/${userId}`, {
         userresponse: userInput  // 서버에 userresponse로 전달
       });
 
-      console.log("사용자 응답 전송 완료. GPT의 다음 질문을 기다리는 중...");
+      console.log("사용자 응답이 전송되었습니다. GPT의 질문을 기다리는 중...");
 
-      // 3. GPT가 새 질문을 생성하고 응답함
+      // GPT가 새 질문을 생성하고 응답
       const response = await axios.post(`${API_BASE_URL}/gpt/dialogues/respond/${userId}`, {
         userresponse: userInput
       });
 
-      console.log("API Response (Next Question):", response.data);  // 응답 데이터 확인
+      console.log("API 응답 (다음 질문):", response.data);  // 서버 응답 디버깅
       const nextQuestion = response.data.questionAsked;  // 서버로부터 새로운 질문을 받음
 
       if (nextQuestion) {
@@ -68,11 +65,11 @@ const Chat = () => {
           setIsLoading(false);  // 로딩 상태 종료
         }, 10);  // 응답 지연 시뮬레이션
       } else {
-        console.warn("다음 질문을 찾을 수 없습니다.");
+        console.warn("응답에서 다음 질문을 찾을 수 없습니다.");
         setIsLoading(false);  // 질문이 없을 경우 로딩 종료
       }
     } catch (error) {
-      console.error("사용자 메시지 전송 또는 응답 수신 중 오류 발생:", error);
+      console.error("사용자 메시지 전송 중 오류:", error);
       setIsLoading(false);  // 에러 발생 시 로딩 종료
     }
 
@@ -84,7 +81,11 @@ const Chat = () => {
     <div className="page-container">
       {/* 1번 구역: 좌측 날짜 목록 */}
       <div className="section-one">
+        <p>24.09.24</p>
+        <p>24.09.23</p>
+        <p>24.09.22</p>
       </div>
+
       {/* 2번 구역: 우측 채팅 영역 */}
       <div className="section-two">
         {/* 채팅 메시지 목록 */}
