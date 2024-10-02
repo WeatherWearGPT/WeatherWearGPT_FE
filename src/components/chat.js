@@ -1,43 +1,76 @@
-import React, { useState } from 'react';
-//import './chat.css';  // CSS 파일 임포트
+import React, { useState, useEffect } from 'react';
+import './chat.css';  // CSS 파일 임포트
+import axios from 'axios';
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || 'http://43.202.86.72:8080/';  // 절대경로 url
 
 const Chat = () => {
-  const [messages, setMessages] = useState([
-    { text: "Q1. 오늘 외출을 하시나요?", sender: "bot" }
-  ]);
-  const [userInput, setUserInput] = useState("");
-  const [questionIndex, setQuestionIndex] = useState(0);
+  const [messages, setMessages] = useState([]);  // 메시지 목록
+  const [userInput, setUserInput] = useState('');  // 사용자 입력
+  const [isLoading, setIsLoading] = useState(false);  // 로딩 상태
+  const [userId, setUserId] = useState(null);  // 로그인한 사용자의 userId
 
-  // 챗봇이 물어볼 질문 목록
-  const questions = [
-    "Q1. 오늘 외출을 하시나요?",
-    "Q2. 오늘 행하는 목적지가 어디신가요?"
-  ];
+  // 1. 대화 시작 - GPT가 첫 번째 질문을 물어봄
+  useEffect(() => {
+    const startChat = async () => {
+      try {
+        console.log("대화 시작 중...");
+        // GPT와 대화 시작
+        const response = await axios.post(`${API_BASE_URL}/gpt/dialogues/start/${userId}`);
+        console.log("API 응답 (첫 질문):", response.data);  // 서버 응답 디버깅
 
-  // 사용자 입력값 변경 시 업데이트
+        const initialQuestion = response.data.questionAsked || "Q1. 오늘 외출을 하시나요?";
+        setMessages([{ text: initialQuestion, sender: "bot" }]);  // 메시지 상태 업데이트
+      } catch (error) {
+        console.error("대화 시작 오류:", error);
+      }
+    };
+    startChat();  // 컴포넌트 마운트 시 대화 시작
+  }, [userId]);
+
+  // 입력값 변화 처리
   const handleInputChange = (e) => {
     setUserInput(e.target.value);
   };
 
-  // 메시지 전송 시 처리
-  const handleSendMessage = () => {
-    if (userInput.trim() === "") return;
+  // 2. 사용자 메시지 전송 및 GPT 응답 처리
+  const handleSendMessage = async () => {
+    if (userInput.trim() === "") return;  // 빈 입력 방지
 
-    // 사용자 메시지를 추가
+    // 사용자 메시지 추가
     const userMessage = { text: userInput, sender: "user" };
-    setMessages([...messages, userMessage]);
+    setMessages((prevMessages) => [...prevMessages, userMessage]);
 
-    // 다음 질문 또는 분석 중 메시지 출력
-    if (questionIndex < questions.length - 1) {
-      const nextQuestion = questions[questionIndex + 1];
-      setTimeout(() => {
-        setMessages((prevMessages) => [...prevMessages, { text: nextQuestion, sender: "bot" }]);
-        setQuestionIndex(questionIndex + 1);
-      }, 1000);
-    } else {
-      setTimeout(() => {
-        setMessages((prevMessages) => [...prevMessages, { text: "분석 중입니다...", sender: "bot" }]);
-      }, 1000);
+    setIsLoading(true);  // 로딩 상태 시작
+
+    try {
+      console.log("사용자 메시지 전송 중:", userInput);  // 사용자 메시지 로그 출력
+      // 사용자의 응답을 서버에 전송
+      await axios.post(`${API_BASE_URL}/gpt/dialogues/respond/${userId}`, {
+        userresponse: userInput  // 서버에 userresponse로 전달
+      });
+
+      console.log("사용자 응답이 전송되었습니다. GPT의 질문을 기다리는 중...");
+
+      // GPT가 새 질문을 생성하고 응답
+      const response = await axios.post(`${API_BASE_URL}/gpt/dialogues/respond/${userId}`, {
+        userresponse: userInput
+      });
+
+      console.log("API 응답 (다음 질문):", response.data);  // 서버 응답 디버깅
+      const nextQuestion = response.data.questionAsked;  // 서버로부터 새로운 질문을 받음
+
+      if (nextQuestion) {
+        setTimeout(() => {
+          setMessages((prevMessages) => [...prevMessages, { text: nextQuestion, sender: "bot" }]);
+          setIsLoading(false);  // 로딩 상태 종료
+        }, 10);  // 응답 지연 시뮬레이션
+      } else {
+        console.warn("응답에서 다음 질문을 찾을 수 없습니다.");
+        setIsLoading(false);  // 질문이 없을 경우 로딩 종료
+      }
+    } catch (error) {
+      console.error("사용자 메시지 전송 중 오류:", error);
+      setIsLoading(false);  // 에러 발생 시 로딩 종료
     }
 
     // 입력 필드 초기화
@@ -46,12 +79,14 @@ const Chat = () => {
 
   return (
     <div className="page-container">
-      {/* 1번 구역: 왼쪽 반투명 회색 박스 */}
+      {/* 1번 구역: 좌측 날짜 목록 */}
       <div className="section-one">
-        <h2>1번 구역</h2>
+        <p>24.09.24</p>
+        <p>24.09.23</p>
+        <p>24.09.22</p>
       </div>
 
-      {/* 2번 구역: 오른쪽 반투명 박스 (채팅) */}
+      {/* 2번 구역: 우측 채팅 영역 */}
       <div className="section-two">
         {/* 채팅 메시지 목록 */}
         <div className="chat-container">
@@ -60,6 +95,7 @@ const Chat = () => {
               {message.text}
             </div>
           ))}
+          {isLoading && <div className="message message-bot">로딩 중...</div>}
         </div>
 
         {/* 입력 영역 */}
