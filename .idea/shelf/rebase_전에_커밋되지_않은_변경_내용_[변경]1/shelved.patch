@@ -1,0 +1,1379 @@
+Index: package.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>{\r\n  \"version\": \"0.1.0\",\r\n  \"private\": true,\r\n  \"dependencies\": {\r\n    \"@testing-library/jest-dom\": \"^5.17.0\",\r\n    \"@testing-library/react\": \"^13.4.0\",\r\n    \"@testing-library/user-event\": \"^13.5.0\",\r\n    \"axios\": \"^9.6.7\",\r\n    \"http-proxy-middleware\": \"^3.0.2\",\r\n    \"react\": \"^18.3.1\",\r\n    \"react-dom\": \"^18.3.1\",\r\n    \"react-router-dom\": \"^6.26.2\",\r\n    \"react-scripts\": \"5.0.1\",\r\n    \"web-vitals\": \"^2.1.4\"\r\n  },\r\n  \"scripts\": {\r\n    \"start\": \"PORT=8080 react-scripts start\",\r\n    \"build\": \"react-scripts build\",\r\n    \"test\": \"react-scripts test\",\r\n    \"eject\": \"react-scripts eject\"\r\n  },\r\n  \"eslintConfig\": {\r\n    \"extends\": [\r\n      \"react-app\",\r\n      \"react-app/jest\"\r\n    ]\r\n  },\r\n  \"browserslist\": {\r\n    \"production\": [\r\n      \">0.2%\",\r\n      \"not dead\",\r\n      \"not op_mini all\"\r\n    ],\r\n    \"development\": [\r\n      \"last 1 chrome version\",\r\n      \"last 1 firefox version\",\r\n      \"last 1 safari version\"\r\n    ]\r\n  }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/package.json b/package.json
+--- a/package.json	(revision 902d106bb359ce0e95133ae2f5562ac64e7e11d8)
++++ b/package.json	(date 1727833956261)
+@@ -1,6 +1,16 @@
+ {
+-  "version": "0.1.0",
+-  "private": true,
++  "browserslist": {
++    "production": [
++      ">0.2%",
++      "not dead",
++      "not op_mini all"
++    ],
++    "development": [
++      "last 1 chrome version",
++      "last 1 firefox version",
++      "last 1 safari version"
++    ]
++  },
+   "dependencies": {
+     "@testing-library/jest-dom": "^5.17.0",
+     "@testing-library/react": "^13.4.0",
+@@ -13,28 +23,19 @@
+     "react-scripts": "5.0.1",
+     "web-vitals": "^2.1.4"
+   },
+-  "scripts": {
+-    "start": "PORT=8080 react-scripts start",
+-    "build": "react-scripts build",
+-    "test": "react-scripts test",
+-    "eject": "react-scripts eject"
+-  },
+   "eslintConfig": {
+     "extends": [
+       "react-app",
+       "react-app/jest"
+     ]
+   },
+-  "browserslist": {
+-    "production": [
+-      ">0.2%",
+-      "not dead",
+-      "not op_mini all"
+-    ],
+-    "development": [
+-      "last 1 chrome version",
+-      "last 1 firefox version",
+-      "last 1 safari version"
+-    ]
+-  }
+-}
++  "private": true,
++  "proxy": "http://43.202.86.72:8080",
++  "scripts": {
++    "start": "react-scripts start",
++    "build": "react-scripts build",
++    "test": "react-scripts test",
++    "eject": "react-scripts eject"
++  },
++  "version": "0.1.0"
++}
+\ No newline at end of file
+Index: src/components/Loginform.css
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/components/Loginform.css b/src/components/Loginform.css
+new file mode 100644
+--- /dev/null	(date 1727745903230)
++++ b/src/components/Loginform.css	(date 1727745903230)
+@@ -0,0 +1,148 @@
++.login-page {
++  position: relative;
++  width: 100%;
++  height: 100vh;
++  background: #FFFFFF;
++  display: flex;
++  flex-direction: column;
++  align-items: center;
++  justify-content: center;
++  overflow: hidden;
++}
++
++.navbar {
++  width: 100%;
++  height: 86px;
++  background-color: #D9D9D9;
++  display: flex;
++  align-items: center;
++  justify-content: center;
++  position: fixed;
++  top: 0;
++  left: 0;
++  z-index: 10;
++  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
++}
++
++.navbar-title {
++  font-family: 'Inter';
++  font-size: 30px;
++  color: #000000;
++}
++
++.weather-bg {
++  position: absolute;
++  top: 0;
++  left: 0;
++  width: 100%;
++  height: 100vh;
++  background: url('weather.png') no-repeat center center;
++  background-size: cover;
++  z-index: -1;
++}
++
++.login-container {
++  display: flex;
++  justify-content: center;
++  align-items: center;
++  width: 100%;
++  height: calc(100vh - 86px);
++  z-index: 1;
++  padding-top: 100px;
++}
++
++.login-form-box {
++  width: 643px;
++  background-color: rgba(217, 217, 217, 0.8);
++  padding: 40px;
++  border-radius: 10px;
++  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
++  backdrop-filter: blur(10px);
++  position: relative;
++  text-align: center;
++}
++
++/* 로고 컨테이너 */
++.logo-container {
++  margin-bottom: 20px;
++}
++
++.weatherwear-logo {
++  width: 600px;
++  height: auto;
++  object-fit: contain;
++}
++
++/* 로그인 폼 */
++.login-form {
++  display: flex;
++  flex-direction: column;
++  align-items: center;
++}
++
++.form-group {
++  display: flex;
++  flex-direction: column;
++  align-items: center;
++  width: 100%;
++  margin-bottom: 20px;
++}
++
++.form-group input {
++  width: 80%;
++  padding: 10px;
++  border: 1px solid #ccc;
++  border-radius: 5px;
++  font-size: 16px;
++  text-align: left; 
++}
++
++::placeholder {
++  text-align: left;
++}
++
++.button-container {
++  display: flex;
++  justify-content: space-between; 
++  width: 80%;
++  margin-top: 20px;
++}
++
++.loginform-login-button, .loginform-signup-button {
++  width: calc(50% - 10px); 
++  height: 50px; 
++  padding: 0; 
++  background-color: #8DDDFF;
++  color: white;
++  border: none;
++  border-radius: 5px;
++  font-size: 16px; 
++  cursor: pointer;
++  transition: background-color 0.3s ease;
++  text-align: center;
++  box-sizing: border-box; 
++  line-height: 50px; 
++}
++
++.loginform-login-button:hover, .loginform-signup-button:hover {
++  background-color: #7CC9E6;
++}
++
++.social-login {
++  display: flex;
++  justify-content: center;
++  margin-top: 20px;
++}
++
++.naver-login, .google-login {
++  background: none;
++  border: none;
++  cursor: pointer;
++  margin: 0 10px;
++}
++
++.social-icon {
++  width: 60px;  
++  height: 60px; 
++  object-fit: contain;
++}
+Index: src/index.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import React from 'react';\r\nimport ReactDOM from 'react-dom/client';\r\nimport App from './App';\r\n//const API_BASE_URL = process.env.REACT_APP_API_BASE_URL; //절대경로 url\r\n\r\nconst root = ReactDOM.createRoot(document.getElementById('root'));\r\nroot.render(\r\n    <React.StrictMode>\r\n        <App />\r\n    </React.StrictMode>\r\n);\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/index.js b/src/index.js
+--- a/src/index.js	(revision 902d106bb359ce0e95133ae2f5562ac64e7e11d8)
++++ b/src/index.js	(date 1727818819890)
+@@ -1,7 +1,6 @@
+ import React from 'react';
+ import ReactDOM from 'react-dom/client';
+ import App from './App';
+-//const API_BASE_URL = process.env.REACT_APP_API_BASE_URL; //절대경로 url
+ 
+ const root = ReactDOM.createRoot(document.getElementById('root'));
+ root.render(
+Index: src/components/mypage.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/components/mypage.js b/src/components/mypage.js
+new file mode 100644
+--- /dev/null	(date 1727772042645)
++++ b/src/components/mypage.js	(date 1727772042645)
+@@ -0,0 +1,121 @@
++import React, { useState } from 'react';
++import { useNavigate } from 'react-router-dom';
++//import axios from 'axios';
++//import './mypage.css';
++import './Loginform';
++import './SignSocial';
++import weatherwearLogo from './weatherwear_logo.png';
++
++const MyPage = () => {
++    const [formData, setFormData] = useState({
++        Height: '',
++        Weight: '',
++        Gender: ''
++    });
++    const [showModal, setShowModal] = useState(false); // 모달 표시 상태
++    const [message, setMessage] = useState(''); // 저장된 메시지 상태
++    const navigate = useNavigate();
++
++    // 입력값 업데이트
++    const handleChange = (e) => {
++        const { name, value } = e.target;
++        setFormData({
++            ...formData,
++            [name]: value
++        });
++    };
++
++    // 수정하기 버튼 클릭 시
++    const handleSubmit = (e) => {
++        e.preventDefault();
++        setMessage('정보가 성공적으로 수정되었습니다.');
++    };
++
++    // 회원탈퇴 버튼 클릭 시 모달 띄우기
++    const handleDeleteClick = () => {
++        setShowModal(true);
++    };
++
++    // 모달에서 '예' 클릭 시 회원 탈퇴 처리
++    const handleConfirmDelete = () => {
++        setShowModal(false);
++        alert('회원탈퇴 되었습니다.');
++            navigate('/loginform');
++    };
++
++    // 모달에서 '아니오' 클릭 시 모달 닫기
++    const handleCancelDelete = () => {
++        setShowModal(false);
++    };
++
++    return (
++        <div className="mypage-container">
++            <div className="navbar">
++                <p className="navbar-title">마이페이지</p>
++                <div className="icon-container">
++                    <div className="icon" onClick={() => navigate('/')}>
++                        <img src="./icons/home.png" alt="홈" />
++                    </div>
++                    <div className="icon" onClick={() => navigate('/mypage')}>
++                        <img src="./icons/user.png" alt="마이페이지" />
++                    </div>
++                    <div className="icon" onClick={() => navigate('/logout')}>
++                        <img src="./icons/logout.png" alt="로그아웃" />
++                    </div>
++                </div>
++            </div>
++
++            <div className="form-box">
++                <div className="logo-container">
++                    <img src={weatherwearLogo} alt="WeatherWear Logo" className="weatherwear-logo" />
++                </div>
++                <form onSubmit={handleSubmit} className="signup-form">
++                    <div className="form-group">
++                        <input
++                            type="text"
++                            name="Height"
++                            value={formData.Height}
++                            onChange={handleChange}
++                            placeholder="키(cm)"
++                            required
++                        />
++                    </div>
++                    <div className="form-group">
++                        <input
++                            type="text"
++                            name="Weight"
++                            value={formData.Weight}
++                            onChange={handleChange}
++                            placeholder="몸무게()"
++                            required
++                        />
++                    </div>
++                    <div className="form-group">
++                        <select name="Gender" value={formData.Gender} onChange={handleChange} required>
++                            <option value="">성별</option>
++                            <option value="male">남성</option>
++                            <option value="female">여성</option>
++                        </select>
++                    </div>
++                    <div className="button-container">
++                        <button type="submit" className="button update-button">수정하기</button>
++                        <button type="button" className="button delete-button" onClick={handleDeleteClick}>회원탈퇴</button>
++                    </div>
++                </form>
++                {message && <p>{message}</p>}
++            </div>
++
++            {showModal && (
++                <div className="modal">
++                    <p>탈퇴하시겠습니까?</p>
++                    <div className="modal-buttons">
++                        <button className="modal-yes" onClick={handleConfirmDelete}>예</button>
++                        <button className="modal-no" onClick={handleCancelDelete}>아니오</button>
++                    </div>
++                </div>
++            )}
++        </div>
++    );
++};
++
++export default MyPage;
+\ No newline at end of file
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"aa2e9723-b442-4d0e-bb60-89eae371afbb\" name=\"변경\" comment=\"create sign\">\r\n      <change afterPath=\"$PROJECT_DIR$/src/components/Loginform.css\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/components/Loginform.js\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/components/Sign.css\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/components/Sign.js\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/components/SignSocial.css\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/components/SignSocial.js\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/components/google_logo.png\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/components/naver_logo.png\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/components/weatherwear_logo.png\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/WeatherWearGPT_FE\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/public/robots.txt\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/public/robots.txt\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/App.js\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/App.js\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/components/chat.css\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/components/chat.css\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/components/chat.js\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/components/chat.js\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <excluded-from-favorite>\r\n      <branch-storage>\r\n        <map>\r\n          <entry type=\"REMOTE\">\r\n            <value>\r\n              <list>\r\n                <branch-info repo=\"$PROJECT_DIR$/WeatherWearGPT_FE\" source=\"origin/main\" />\r\n              </list>\r\n            </value>\r\n          </entry>\r\n        </map>\r\n      </branch-storage>\r\n    </excluded-from-favorite>\r\n    <favorite-branches>\r\n      <branch-storage>\r\n        <map>\r\n          <entry type=\"REMOTE\">\r\n            <value>\r\n              <list>\r\n                <branch-info repo=\"$PROJECT_DIR$/WeatherWearGPT_FE\" source=\"origin/sign\" />\r\n              </list>\r\n            </value>\r\n          </entry>\r\n        </map>\r\n      </branch-storage>\r\n    </favorite-branches>\r\n    <option name=\"RECENT_BRANCH_BY_REPOSITORY\">\r\n      <map>\r\n        <entry key=\"$PROJECT_DIR$\" value=\"chat\" />\r\n        <entry key=\"$PROJECT_DIR$/WeatherWearGPT_FE\" value=\"sign\" />\r\n      </map>\r\n    </option>\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n    <option name=\"RESET_MODE\" value=\"MIXED\" />\r\n    <option name=\"ROOT_SYNC\" value=\"DONT_SYNC\" />\r\n  </component>\r\n  <component name=\"GitRewordedCommitMessages\">\r\n    <option name=\"onto\" value=\"f701884c5a823e6aeca6c18951cc43581475114f\" />\r\n  </component>\r\n  <component name=\"ProjectColorInfo\">{\r\n  &quot;associatedIndex&quot;: 4\r\n}</component>\r\n  <component name=\"ProjectId\" id=\"2mYI4DIx1keOHjGF6pbr92mQ18S\" />\r\n  <component name=\"ProjectLevelVcsManager\">\r\n    <ConfirmationsSetting value=\"2\" id=\"Add\" />\r\n  </component>\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">{\r\n  &quot;keyToString&quot;: {\r\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\r\n    &quot;git-widget-placeholder&quot;: &quot;chat&quot;,\r\n    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,\r\n    &quot;last_opened_file_path&quot;: &quot;C:/project3/weatherweargpt&quot;,\r\n    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,\r\n    &quot;settings.editor.splitter.proportion&quot;: &quot;0.2255144&quot;\r\n  }\r\n}</component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"CopyFile.RECENT_KEYS\">\r\n      <recent name=\"C:\\project3\\weatherweargpt\\src\\components\" />\r\n    </key>\r\n    <key name=\"MoveFile.RECENT_KEYS\">\r\n      <recent name=\"C:\\project3\\weatherweargpt\\src\\components\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"애플리케이션 수준\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"디폴트 작업\">\r\n      <changelist id=\"aa2e9723-b442-4d0e-bb60-89eae371afbb\" name=\"변경\" comment=\"\" />\r\n      <created>1727246890401</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1727246890401</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"create sign\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1727250080899</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1727250080899</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"create sign\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1727250234107</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1727250234107</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"create sign\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1727250779458</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1727250779458</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00004\" summary=\"create sign\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1727281198011</created>\r\n      <option name=\"number\" value=\"00004\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1727281198011</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00005\" summary=\"create sign\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1727309222897</created>\r\n      <option name=\"number\" value=\"00005\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1727309222897</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00006\" summary=\"create sign\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1727309326109</created>\r\n      <option name=\"number\" value=\"00006\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1727309326109</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00007\" summary=\"create sign\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1727325850843</created>\r\n      <option name=\"number\" value=\"00007\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00007\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1727325850843</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"8\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"RECENT_FILTERS\">\r\n      <map>\r\n        <entry key=\"Branch\">\r\n          <value>\r\n            <list>\r\n              <RecentGroup>\r\n                <option name=\"FILTER_VALUES\">\r\n                  <option value=\"origin/sign\" />\r\n                </option>\r\n              </RecentGroup>\r\n            </list>\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State>\r\n              <option name=\"FILTERS\">\r\n                <map>\r\n                  <entry key=\"branch\">\r\n                    <value>\r\n                      <list>\r\n                        <option value=\"main/sign-up\" />\r\n                      </list>\r\n                    </value>\r\n                  </entry>\r\n                </map>\r\n              </option>\r\n            </State>\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"create sign\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"create sign\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 902d106bb359ce0e95133ae2f5562ac64e7e11d8)
++++ b/.idea/workspace.xml	(date 1727830247979)
+@@ -4,22 +4,21 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="aa2e9723-b442-4d0e-bb60-89eae371afbb" name="변경" comment="create sign">
++    <list default="true" id="aa2e9723-b442-4d0e-bb60-89eae371afbb" name="변경" comment="chat api connect try">
++      <change afterPath="$PROJECT_DIR$/src/api/axiosClient.js" afterDir="false" />
+       <change afterPath="$PROJECT_DIR$/src/components/Loginform.css" afterDir="false" />
+       <change afterPath="$PROJECT_DIR$/src/components/Loginform.js" afterDir="false" />
+       <change afterPath="$PROJECT_DIR$/src/components/Sign.css" afterDir="false" />
+       <change afterPath="$PROJECT_DIR$/src/components/Sign.js" afterDir="false" />
+       <change afterPath="$PROJECT_DIR$/src/components/SignSocial.css" afterDir="false" />
+       <change afterPath="$PROJECT_DIR$/src/components/SignSocial.js" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/components/google_logo.png" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/components/naver_logo.png" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/components/weatherwear_logo.png" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/components/mypage.js" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/WeatherWearGPT_FE" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/public/robots.txt" beforeDir="false" afterPath="$PROJECT_DIR$/public/robots.txt" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/components/chat.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/chat.css" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/components/chat.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/chat.js" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -77,16 +76,19 @@
+     <option name="hideEmptyMiddlePackages" value="true" />
+     <option name="showLibraryContents" value="true" />
+   </component>
+-  <component name="PropertiesComponent">{
+-  &quot;keyToString&quot;: {
+-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+-    &quot;git-widget-placeholder&quot;: &quot;chat&quot;,
+-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+-    &quot;last_opened_file_path&quot;: &quot;C:/project3/weatherweargpt&quot;,
+-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+-    &quot;settings.editor.splitter.proportion&quot;: &quot;0.2255144&quot;
++  <component name="PropertiesComponent"><![CDATA[{
++  "keyToString": {
++    "RunOnceActivity.ShowReadmeOnStart": "true",
++    "git-widget-placeholder": "chat",
++    "kotlin-language-version-configured": "true",
++    "last_opened_file_path": "C:/project3/WeatherWearGPT_Server-main",
++    "project.structure.last.edited": "Modules",
++    "project.structure.proportion": "0.0",
++    "project.structure.side.proportion": "0.0",
++    "settings.editor.selected.configurable": "preferences.pluginManager",
++    "settings.editor.splitter.proportion": "0.2255144"
+   }
+-}</component>
++}]]></component>
+   <component name="RecentsManager">
+     <key name="CopyFile.RECENT_KEYS">
+       <recent name="C:\project3\weatherweargpt\src\components" />
+@@ -160,7 +162,71 @@
+       <option name="project" value="LOCAL" />
+       <updated>1727325850843</updated>
+     </task>
+-    <option name="localTasksCounter" value="8" />
++    <task id="LOCAL-00008" summary="chat">
++      <option name="closed" value="true" />
++      <created>1727748695556</created>
++      <option name="number" value="00008" />
++      <option name="presentableId" value="LOCAL-00008" />
++      <option name="project" value="LOCAL" />
++      <updated>1727748695556</updated>
++    </task>
++    <task id="LOCAL-00009" summary="chat">
++      <option name="closed" value="true" />
++      <created>1727756754917</created>
++      <option name="number" value="00009" />
++      <option name="presentableId" value="LOCAL-00009" />
++      <option name="project" value="LOCAL" />
++      <updated>1727756754917</updated>
++    </task>
++    <task id="LOCAL-00010" summary="chat api connect try">
++      <option name="closed" value="true" />
++      <created>1727767700820</created>
++      <option name="number" value="00010" />
++      <option name="presentableId" value="LOCAL-00010" />
++      <option name="project" value="LOCAL" />
++      <updated>1727767700820</updated>
++    </task>
++    <task id="LOCAL-00011" summary="chat api connect try">
++      <option name="closed" value="true" />
++      <created>1727801346370</created>
++      <option name="number" value="00011" />
++      <option name="presentableId" value="LOCAL-00011" />
++      <option name="project" value="LOCAL" />
++      <updated>1727801346370</updated>
++    </task>
++    <task id="LOCAL-00012" summary="chat api connect try">
++      <option name="closed" value="true" />
++      <created>1727801523358</created>
++      <option name="number" value="00012" />
++      <option name="presentableId" value="LOCAL-00012" />
++      <option name="project" value="LOCAL" />
++      <updated>1727801523358</updated>
++    </task>
++    <task id="LOCAL-00013" summary="chat api connect try">
++      <option name="closed" value="true" />
++      <created>1727814496517</created>
++      <option name="number" value="00013" />
++      <option name="presentableId" value="LOCAL-00013" />
++      <option name="project" value="LOCAL" />
++      <updated>1727814496517</updated>
++    </task>
++    <task id="LOCAL-00014" summary="chat api connect try">
++      <option name="closed" value="true" />
++      <created>1727816368813</created>
++      <option name="number" value="00014" />
++      <option name="presentableId" value="LOCAL-00014" />
++      <option name="project" value="LOCAL" />
++      <updated>1727816368813</updated>
++    </task>
++    <task id="LOCAL-00015" summary="chat api connect try">
++      <option name="closed" value="true" />
++      <created>1727820259247</created>
++      <option name="number" value="00015" />
++      <option name="presentableId" value="LOCAL-00015" />
++      <option name="project" value="LOCAL" />
++      <updated>1727820259247</updated>
++    </task>
++    <option name="localTasksCounter" value="16" />
+     <servers />
+   </component>
+   <component name="Vcs.Log.Tabs.Properties">
+@@ -189,7 +255,7 @@
+                   <entry key="branch">
+                     <value>
+                       <list>
+-                        <option value="main/sign-up" />
++                        <option value="main" />
+                       </list>
+                     </value>
+                   </entry>
+@@ -203,6 +269,8 @@
+   </component>
+   <component name="VcsManagerConfiguration">
+     <MESSAGE value="create sign" />
+-    <option name="LAST_COMMIT_MESSAGE" value="create sign" />
++    <MESSAGE value="chat" />
++    <MESSAGE value="chat api connect try" />
++    <option name="LAST_COMMIT_MESSAGE" value="chat api connect try" />
+   </component>
+ </project>
+\ No newline at end of file
+Index: src/components/Loginform.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/components/Loginform.js b/src/components/Loginform.js
+new file mode 100644
+--- /dev/null	(date 1727788252917)
++++ b/src/components/Loginform.js	(date 1727788252917)
+@@ -0,0 +1,120 @@
++import React, { useState } from 'react';
++import { useNavigate } from 'react-router-dom';
++import axios from 'axios';
++import './Loginform.css';
++import naverLogo from './naver_logo.png';
++import googleLogo from './google_logo.png';
++import weatherwearLogo from './weatherwear_logo.png';
++const API_BASE_URL = process.env.REACT_APP_API_BASE_URL; //절대경로 url
++
++
++const LoginForm = () => {
++  const [username, setUsername] = useState('');
++  const [password, setPassword] = useState('');
++  const [error, setError] = useState('');
++  const navigate = useNavigate();
++  const params = new URLSearchParams();
++  params.append('username', username);
++  params.append('password', password);
++
++  const handleSubmit = async (e) => {
++    e.preventDefault();
++    setError('');
++    console.log("Submitting login with", username, password);
++
++    try {
++      const params = new URLSearchParams();
++      params.append('username', username);
++      params.append('password', password);
++
++      const response = await axios.post(`${API_BASE_URL}/login`, params, {
++        headers: {
++          'Content-Type': 'application/x-www-form-urlencoded',
++        },
++      });
++
++      if (response.status === 200) {
++        console.log('로그인 성공:', response.data);
++
++        // 헤더에서 accessToken 가져오기
++        const accessToken = response.headers['authorization'].replace('Bearer ', '');
++        localStorage.setItem('accessToken', accessToken);
++
++        // 응답 본문에서 userId 가져오기
++        const userId = response.data.userId;
++
++        // 로그인 성공 후 채팅 페이지로 이동
++        navigate(`/chat/${userId}`);
++      }
++    } catch (err) {
++      if (err.response) {
++        setError('로그인 실패: ' + err.response.data.message);
++      } else {
++        setError('네트워크 오류가 발생했습니다.');
++      }
++    }
++  };
++  const handleSignUpClick = () => {
++    navigate('/signup');
++  };
++
++  const handleNaverLogin = () => {
++    window.location.href = `${API_BASE_URL}/oauth2/authorization/naver`;
++  };
++
++  const handleGoogleLogin = () => {
++    window.location.href = `${API_BASE_URL}/oauth2/authorization/google`;
++  };
++
++  return (
++    <div className="login-page">
++      <div className="login-container">
++        <div className="weather-bg"></div>
++        <div className="login-form-box">
++          {/* 로고를 로그인 박스의 가장 위에 추가 */}
++          <div className="logo-container">
++            <img src={weatherwearLogo} alt="WeatherWear Logo" className="weatherwear-logo" />
++          </div>
++          <form onSubmit={handleSubmit} className="login-form">
++            <div className="form-group">
++              <input
++                type="text"
++                name="username"
++                value={username}
++                onChange={(e) => setUsername(e.target.value)}
++                placeholder="아이디"
++                required
++              />
++            </div>
++            <div className="form-group">
++              <input
++                type="password"
++                id="password"
++                value={password}
++                onChange={(e) => setPassword(e.target.value)}
++                placeholder="비밀번호"
++                required
++              />
++            </div>
++            <div className="button-container">
++                <button type="submit" className="loginform-login-button">로그인</button>
++                <button type="button" onClick={handleSignUpClick} className="loginform-signup-button">회원가입</button>
++            </div>
++          </form>
++          {error && <p className="error-message">{error}</p>}
++          <div className="social-login">
++            {/* 네이버 로그인 버튼 */}
++            <button type="button" className="naver-login" onClick={handleNaverLogin}>
++              <img src={naverLogo} alt="네이버 로그인" className="social-icon" />
++            </button>
++            {/* 구글 로그인 버튼 */}
++            <button type="button" className="google-login" onClick={handleGoogleLogin}>
++              <img src={googleLogo} alt="구글 로그인" className="social-icon" />
++            </button>
++          </div>
++        </div>
++      </div>
++    </div>
++  );
++};
++export default LoginForm;
+\ No newline at end of file
+Index: src/components/Sign.css
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/components/Sign.css b/src/components/Sign.css
+new file mode 100644
+--- /dev/null	(date 1727744063138)
++++ b/src/components/Sign.css	(date 1727744063138)
+@@ -0,0 +1,146 @@
++/* 전체 페이지 설정 */
++.signup-page {
++    position: relative;
++    width: 100%;
++    height: 100vh;
++    background: #FFFFFF;
++    display: flex;
++    flex-direction: column;
++    align-items: center;
++    justify-content: center;
++    overflow: hidden;
++  }
++
++  /* 상단바 (헤더) */
++  .navbar {
++    width: 100%;
++    height: 86px;
++    background-color: #D9D9D9;
++    display: flex;
++    align-items: center;
++    justify-content: center;
++    position: fixed;
++    top: 0;
++    left: 0;
++    z-index: 10;
++    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
++  }
++
++  .navbar-title {
++    font-family: 'Inter';
++    font-size: 30px;
++    color: #000000;
++  }
++
++  /* 배경 이미지 */
++  .weather-bg {
++    position: absolute;
++    top: 0;
++    left: 0;
++    width: 100%;
++    height: 100vh;
++    background: url('weather.png') no-repeat center center;
++    background-size: cover;
++    z-index: -1;
++  }
++
++  /* 폼 전체를 감싸는 박스 */
++  .signup-container {
++    display: flex;
++    justify-content: center;
++    align-items: center;
++    width: 100%;
++    height: calc(100vh - 86px);
++    z-index: 1;
++    padding-top: 100px;
++  }
++
++  .signup-form-box {
++    width: 643px;
++    background-color: rgba(217, 217, 217, 0.8);
++    padding: 40px;
++    border-radius: 10px;
++    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
++    backdrop-filter: blur(10px);
++    text-align: center;
++  }
++
++  /* 로고 컨테이너 */
++  .logo-container {
++    margin-bottom: 20px;
++  }
++
++  .weatherwear-logo {
++    width: 600px;
++    height: auto;
++    object-fit: contain;
++  }
++
++  /* 회원가입 폼 */
++  .signup-form {
++    display: flex;
++    flex-direction: column;
++  }
++
++  .form-group {
++    display: flex;
++    align-items: center;
++    margin-bottom: 20px;
++  }
++
++  /* 일반 입력 필드 */
++  .form-group input {
++    width: 70%;
++    padding: 10px;
++    border: 1px solid #ccc;
++    border-radius: 5px;
++    font-size: 16px;
++    text-align: left;
++  }
++
++  /* 플레이스홀더 스타일 */
++  .form-group input::placeholder {
++    text-align: left;
++  }
++
++  /* 성별 선택 칸 크기 조정 */
++  .form-group select {
++    width: 20%; /* 성별 선택 칸의 너비를 더 작게 줄임 */
++    padding: 10px;
++    border: 1px solid #ccc;
++    border-radius: 5px;
++    font-size: 16px;
++    text-align: left;
++  }
++
++  /* 회원가입 버튼 */
++  .button-group {
++    display: flex;
++    justify-content: center;
++  }
++
++  .signup-button {
++    width: 50%;
++    padding: 15px;
++    background-color: #8DDDFF;
++    color: white;
++    border: none;
++    border-radius: 5px;
++    font-size: 18px;
++    cursor: pointer;
++    transition: background-color 0.3s ease;
++    margin-top: 20px; /* 추가 간격 조정 */
++  }
++
++  .signup-button:hover {
++    background-color: #7CC9E6;
++  }
++
++  /* 메시지 출력 */
++  .message {
++    text-align: center;
++    margin-top: 20px;
++    color: green;
++    font-size: 18px;
++    font-weight: bold;
++  }
+\ No newline at end of file
+Index: public/robots.txt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+># https://www.robotstxt.org/robotstxt.html\r\nUser-agent: *\r\nDisallow:\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/public/robots.txt b/public/robots.txt
+--- a/public/robots.txt	(revision 902d106bb359ce0e95133ae2f5562ac64e7e11d8)
++++ b/public/robots.txt	(date 1727743059094)
+@@ -1,3 +1,99 @@
+-# https://www.robotstxt.org/robotstxt.html
+-User-agent: *
+-Disallow:
++import React, { useState, useEffect } from 'react';
++import './chat.css';  // CSS 파일 임포트
++import axios from 'axios';
++
++const Chat = () => {
++  const [messages, setMessages] = useState([]);
++  const [userInput, setUserInput] = useState("");
++  const userId = "12345"; // 사용자 ID를 고정된 값으로 설정
++  const [isLoading, setIsLoading] = useState(false);
++
++  // 챗봇의 첫 질문을 요청
++  useEffect(() => {
++    const startChat = async () => {
++      try {
++        const response = await axios.post(`http://localhost:8080/gpt/dialogues/start/${userId}`);
++        const initialQuestion = response.data.question;
++        setMessages([{ text: initialQuestion, sender: "bot" }]);
++      } catch (error) {
++        console.error("Error starting chat:", error);
++      }
++    };
++
++    startChat();
++  }, [userId]);
++
++  // 사용자 입력값 변경 시 업데이트
++  const handleInputChange = (e) => {
++    setUserInput(e.target.value);
++  };
++
++  // 메시지 전송 시 처리
++  const handleSendMessage = async () => {
++    if (userInput.trim() === "") return;
++
++    // 사용자 메시지를 추가
++    const userMessage = { text: userInput, sender: "user" };
++    setMessages([...messages, userMessage]);
++
++    // API에 사용자의 답변 전송 및 응답 처리
++    setIsLoading(true);
++    try {
++      await axios.post(`http://localhost:8080/gpt/dialogues/${userId}`, {
++        message: userInput
++      });
++
++      const response = await axios.post(`http://localhost:8080/gpt/dialogues/respond/${userId}`);
++      const botResponse = response.data.response;
++
++      setTimeout(() => {
++        setMessages((prevMessages) => [...prevMessages, { text: botResponse, sender: "bot" }]);
++        setIsLoading(false);
++      }, 1000);
++    } catch (error) {
++      console.error("Error sending user message or receiving response:", error);
++      setIsLoading(false);
++    }
++
++    // 입력 필드 초기화
++    setUserInput("");
++  };
++
++  return (
++    <div className="page-container">
++      {/* 1번 구역: 왼쪽 반투명 회색 박스 */}
++      <div className="section-one">
++        <h2>1번 구역</h2>
++      </div>
++
++      {/* 2번 구역: 오른쪽 반투명 박스 (채팅) */}
++      <div className="section-two">
++        {/* 채팅 메시지 목록 */}
++        <div className="chat-container">
++          {messages.map((message, index) => (
++            <div key={index} className={`message message-${message.sender}`}>
++              {message.text}
++            </div>
++          ))}
++          {isLoading && <div className="message message-bot">로딩 중...</div>}
++        </div>
++
++        {/* 입력 영역 */}
++        <div className="input-container">
++          <input
++            type="text"
++            className="input-box"
++            value={userInput}
++            onChange={handleInputChange}
++            placeholder="답변을 입력하세요..."
++          />
++          <button className="send-button" onClick={handleSendMessage}>
++            보내기
++          </button>
++        </div>
++      </div>
++    </div>
++  );
++};
++
++export default Chat;
+Index: src/components/Sign.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/components/Sign.js b/src/components/Sign.js
+new file mode 100644
+--- /dev/null	(date 1727818479105)
++++ b/src/components/Sign.js	(date 1727818479105)
+@@ -0,0 +1,150 @@
++import React, { useState } from 'react';
++import { useNavigate } from 'react-router-dom';
++import './Sign.css';
++import weatherwearLogo from './weatherwear_logo.png';
++import axios from 'axios';
++axios.defaults.baseURL = 'http://localhost:8080';  // 기본 서버 URL 설정
++axios.defaults.headers.post['Content-Type'] = 'application/json';  // 기본 헤더 설정
++
++const API_BASE_URL = process.env.REACT_APP_API_BASE_URL; //절대경로 url
++
++const Sign = () => {
++  const navigate = useNavigate();  // useNavigate 훅 사용
++
++  const [formData, setFormData] = useState({
++    UserId: '',
++    Email: '',
++    UserPassword: '',
++    passwordcheck: '',
++    Height: '',
++    Weight: '',
++    Gender: '',
++  });
++  const [message, setMessage] = useState('');
++  const handleChange = (e) => {
++    const { name, value } = e.target;
++    setFormData({
++      ...formData,
++      [name]: value,
++    });
++  };
++
++  const handleSubmit = async (e) => {
++    e.preventDefault();
++    if (formData.UserPassword !== formData.passwordcheck) {
++      setMessage('비밀번호가 일치하지 않습니다.');
++      return;
++    }
++
++    try {
++      // 회원가입 요청 보내기
++      const response = await axios.post(`${API_BASE_URL}/register`, formData);
++      if (response.status === 200) {
++        setMessage('회원가입에 성공하셨습니다.');
++        // 회원가입 성공 후 로그인 페이지로 이동
++        navigate('/login');
++      }
++    } catch (error) {
++      console.error('회원가입 실패:', error);
++      setMessage('회원가입에 실패하였습니다.');
++    }
++  };
++
++  return (
++    <div className="signup-page">
++      <div className="signup-container">
++        <div className="weather-bg"></div>
++        <div className="signup-form-box">
++          <div className="logo-container">
++            <img src={weatherwearLogo} alt="WeatherWear Logo" className="weatherwear-logo" />
++          </div>
++          <form onSubmit={handleSubmit} className="signup-form">
++            <div className="form-group">
++              <input
++                type="text"
++                name="UserId"
++                value={formData.UserId}
++                onChange={handleChange}
++                placeholder="아이디"
++                required
++              />
++            </div>
++            <div className="form-group">
++              <input
++                type="Email"
++                name="Email"
++                value={formData.Email}
++                onChange={handleChange}
++                placeholder="이메일"
++                required
++              />
++            </div>
++            <div className="form-group">
++              <input
++                type="Password"
++                name="UserPassword"
++                value={formData.UserPassword}
++                onChange={handleChange}
++                placeholder="비밀번호"
++                required
++              />
++            </div>
++            <div className="form-group">
++              <input
++                type="Password"
++                name="passwordcheck"
++                value={formData.passwordcheck}
++                onChange={handleChange}
++                placeholder="비밀번호 확인"
++                required
++              />
++            </div>
++            <div className="form-group">
++              <input
++                type="number"
++                name="Height"
++                value={formData.Height}
++                onChange={handleChange}
++                placeholder="키(cm)"
++                required
++              />
++            </div>
++            <div className="form-group">
++              <input
++                type="number"
++                name="Weight"
++                value={formData.Weight}
++                onChange={handleChange}
++                placeholder="몸무게(kg)"
++                required
++              />
++            </div>
++            <div className="form-group">
++              <select
++                name="Gender"
++                value={formData.Gender}
++                onChange={handleChange}
++                className="Gender-select"
++                required
++              >
++                <option value="" disabled>
++                  성별
++                </option>
++                <option value="male">남성</option>
++                <option value="female">여성</option>
++              </select>
++            </div>
++            <div className="form-group button-group">
++              <button type="submit" className="signup-button">
++                회원가입
++              </button>
++            </div>
++          </form>
++          {message && <p className="message">{message}</p>}
++        </div>
++      </div>
++    </div>
++  );
++};
++
++export default Sign;
+\ No newline at end of file
+Index: src/components/SignSocial.css
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/components/SignSocial.css b/src/components/SignSocial.css
+new file mode 100644
+--- /dev/null	(date 1727744063539)
++++ b/src/components/SignSocial.css	(date 1727744063539)
+@@ -0,0 +1,133 @@
++signup-page {
++    position: relative;
++    width: 100%;
++    height: 100vh;
++    background: #FFFFFF;
++    display: flex;
++    flex-direction: column;
++    align-items: center;
++    justify-content: center;
++    overflow: hidden;
++}
++
++.weather-bg {
++    position: absolute;
++    top: 0;
++    left: 0;
++    width: 100%;
++    height: 100vh;
++    background: url('weather.png') no-repeat center center;
++    background-size: cover;
++    z-index: -1;
++}
++
++.navbar {
++    width: 100%;
++    height: 86px;
++    background-color: #D9D9D9;
++    display: flex;
++    align-items: center;
++    justify-content: center;
++    position: fixed;
++    top: 0;
++    left: 0;
++    z-index: 10;
++    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
++}
++
++.navbar-title {
++    font-family: 'Inter';
++    font-size: 30px;
++    color: #000000;
++}
++
++.signup-container {
++    display: flex;
++    justify-content: center;
++    align-items: center;
++    width: 100%;
++    height: calc(100vh - 86px);
++    z-index: 1;
++    padding-top: 100px;
++}
++
++.signup-form-box {
++    width: 643px;
++    background-color: rgba(217, 217, 217, 0.8);
++    padding: 40px;
++    border-radius: 10px;
++    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
++    backdrop-filter: blur(10px);
++    text-align: center;
++}
++
++.signup-form {
++    display: flex;
++    flex-direction: column;
++}
++
++.form-group {
++    display: flex;
++    align-items: center;
++    margin-bottom: 20px;
++}
++
++.form-group input {
++    width: 70%;
++    padding: 10px;
++    border: 1px solid #ccc;
++    border-radius: 5px;
++    font-size: 16px;
++    text-align: left;
++}
++
++.form-group input::placeholder {
++    text-align: left;
++}
++
++.form-group select {
++    width: 20%;
++    padding: 10px;
++    border: 1px solid #ccc;
++    border-radius: 5px;
++    font-size: 16px;
++    text-align: left;
++}
++
++.signup-button {
++    width: 50%;
++    padding: 15px;
++    background-color: #8DDDFF;
++    color: white;
++    border: none;
++    border-radius: 5px;
++    font-size: 18px;
++    cursor: pointer;
++    transition: background-color 0.3s ease;
++    margin-top: 20px;
++    margin-left: auto;
++    margin-right: auto;
++    display: block;
++}
++
++.signup-button:hover {
++    background-color: #7CC9E6;
++}
++
++.message {
++    text-align: center;
++    margin-top: 20px;
++    color: green;
++    font-size: 18px;
++    font-weight: bold;
++}
++
++.logo-container {
++    margin-bottom: 20px;
++}
++
++.weatherwear-logo {
++    width: 600px;
++    height: auto;
++    object-fit: contain;
++}
+\ No newline at end of file
+Index: src/components/SignSocial.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/components/SignSocial.js b/src/components/SignSocial.js
+new file mode 100644
+--- /dev/null	(date 1727787097145)
++++ b/src/components/SignSocial.js	(date 1727787097145)
+@@ -0,0 +1,124 @@
++import React, { useState } from 'react';
++import './SignSocial.css';
++import axios from 'axios';
++import weatherwearLogo from './weatherwear_logo.png';
++const API_BASE_URL = process.env.REACT_APP_API_BASE_URL; //절대경로 url
++
++
++const SignSocial = () => {
++    const [formData, setFormData] = useState({
++        Height: '',
++        Weight: '',
++        Gender: ''
++    });
++
++    const [message, setMessage] = useState('');
++    const [errorMessage, setErrorMessage] = useState({ Height: '', Weight: '' });
++
++    const handleChange = (e) => {
++        const { name, value } = e.target;
++
++        if (name === 'Height' || name === 'Weight') {
++            if (!/^\d+$/.test(value)) {
++                setErrorMessage({
++                    ...errorMessage,
++                    [name]: '숫자를 입력하십시오.'
++                });
++            } else {
++                setErrorMessage({
++                    ...errorMessage,
++                    [name]: ''
++                });
++            }
++        }
++
++        setFormData({
++            ...formData,
++            [name]: value
++        });
++    };
++
++    const handleSubmit = async (e) => {
++        e.preventDefault();
++
++        if (errorMessage.Height || errorMessage.Weight) {
++            setMessage('모든 필드가 올바르게 입력되었는지 확인하십시오.');
++            return;
++        }
++
++        try {
++            const token = localStorage.getItem('accessToken');
++            const response = await axios.post(
++                `${API_BASE_URL}/register/social`,
++                {
++                    height: formData.Height,
++                    weight: formData.Weight,
++                    gender: formData.Gender,
++                },
++                {
++                    headers: {
++                        Authorization: token,
++                    },
++                }
++            );
++
++            if (response.status === 200) {
++                setMessage('추가 정보가 성공적으로 저장되었습니다.');
++            }
++        } catch (error) {
++            console.error('추가 정보 저장 실패:', error);
++            setMessage('저장에 실패했습니다.');
++        }
++    };
++
++    return (
++        <div className="signup-page">
++            <div className="navbar">
++                <p className="navbar-title">추가 정보 입력</p>
++            </div>
++            <div className="signup-container">
++                <div className="weather-bg"></div>
++                <div className="signup-form-box">
++                    <div className="logo-container">
++                        <img src={weatherwearLogo} alt="WeatherWear Logo" className="weatherwear-logo" />
++                    </div>
++                    <form onSubmit={handleSubmit} className="signup-form">
++                        <div className="form-group">
++                            <input
++                                type="text"
++                                name="Height"
++                                value={formData.Height}
++                                onChange={handleChange}
++                                placeholder="키(cm)"
++                                required
++                            />
++                            {errorMessage.Height && <p className="error-message">{errorMessage.Height}</p>}
++                        </div>
++                        <div className="form-group">
++                            <input
++                                type="text"
++                                name="Weight"
++                                value={formData.Weight}
++                                onChange={handleChange}
++                                placeholder="몸무게(kg)"
++                                required
++                            />
++                            {errorMessage.Weight && <p className="error-message">{errorMessage.Weight}</p>}
++                        </div>
++                        <div className="form-group">
++                            <select name="Gender" value={formData.Gender} onChange={handleChange} required>
++                                <option value="">성별</option>
++                                <option value="male">남성</option>
++                                <option value="female">여성</option>
++                            </select>
++                        </div>
++                        <button type="submit" className="signup-button">저장</button>
++                    </form>
++                    {message && <p className="message">{message}</p>}
++                </div>
++            </div>
++        </div>
++    );
++};
++
++export default SignSocial;
+\ No newline at end of file
